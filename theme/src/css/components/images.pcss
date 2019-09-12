@@ -3,7 +3,18 @@ figure {
 
   img {
     @apply absolute w-full h-full;
-    object-fit: cover;
+  }
+
+  &.contain {
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &.cover {
+    img {
+      object-fit: cover;
+    }
   }
 
   &.portrait::after {
@@ -17,4 +28,8 @@ figure {
     display: block;
     padding-top: 66.66667%;
   }
+}
+
+img {
+  @apply relative block w-auto h-full;
 }

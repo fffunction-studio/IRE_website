@@ -1,56 +1,16 @@
-<div class="footer-overflow-background bg-gray-900"></div>
+  <footer class="section {{ section_class|join(' ') }}">
+    <div class="container {{ container_class|join(' ') }}">
 
-<div class="footer-wrapper relative">
+      {% block footer %}
 
-  {% embed "layout/section.html.twig" with {
-    section_tag : "footer",
-    section_class: ['footer-main', 'bg-gray-900', 'text-gray-200', 'z-50']
-  } %}
-
-    {% block footer %}
-
-      <div class="absolute inset-0 container">
-        <div class="flex justify-end">
-          <div class="btn-close toggle-footer">
-            <span></span>
-          </div>
+        <div class="flex justify-center">
+        <div class="text-center">
+          <p>{{ contact_widget.email }}</p>
+          <p>{{ contact_widget.phone }}</p>
         </div>
-      </div>
-      {% if footer_widget %}
-
-        <h1 class="mb-4 text-4xl font-bold">Contact us</h1>
-        <div class="flex mb-4">
-          <div class="mr-2 text-gray-600">T</div>
-          <div>
-            <p>+31 6 12345678</p>
-          </div>
-        </div>
-        <div class="flex mb-4">
-          <div class="mr-2 text-gray-600">E</div>
-          <div>
-            <p>hello@mail.com</p>
-          </div>
-        </div>
-        <div class="flex mb-8">
-          <div class="mr-2 text-gray-600">A</div>
-          <div>
-            <p>Torenallee 72-50<br>5617 Bd Eindhoven</p>
-          </div>
         </div>
 
-        {# <p>{{ footer_widget.footer_text }}</p> #}
-        <p class="text-gray-600">&copy;
-          {{ "now"|date("Y") }}</p>
+      {% endblock %}
 
-      {% else %}
-
-        <p>&copy;
-          {{ "now"|date("Y") }}</p>
-
-      {% endif %}
-
-    {% endblock %}
-
-  {% endembed %}
-
-</div>
+    </div>
+  </footer>

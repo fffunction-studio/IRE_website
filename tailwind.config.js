@@ -1,12 +1,13 @@
 module.exports = {
   theme: {
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
+      serif: ['Life', 'serif'],
     },
     extend: {
       colors: {
         black: '#0c0c0c',
         white: '#f9f9f9',
+        blue: '#004fff'
       },
       spacing: {
         '1/12': '8.33333%',

@@ -2,15 +2,13 @@
 
 {% block main %}
 
-  {% embed "layout/section.html.twig" %}
-
-    {% block section %}
+    <section class="section {{ section_class|join(' ') }}">
+    <div class="container {{ container_class|join(' ') }}">
 
       <h2>{{ post.title }}</h2>
       <p>{{ post.content }}</p>
 
-    {% endblock %}
-
-  {% endembed %}
+    </div>
+  </section>
 
 {% endblock %}

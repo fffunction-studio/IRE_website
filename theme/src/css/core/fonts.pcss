@@ -16,6 +16,15 @@ h1, h2, h3 {
 }
 
 p {
-  @apply leading-normal mb-1;
+  @apply leading-normal;
   max-width: 40em;
+
+  &:not(:first-child) {
+    text-indent: 2rem;
+  }
 }
+
+.description p {
+  @apply text-xl;
+}
+

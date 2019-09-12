@@ -105,30 +105,78 @@ class IreneStracuzzi extends Timber\Site
         $context['menu'] = new Timber\Menu();
         $context['site'] = $this;
 
+        $args = array(
+          'post_type' => 'widget'
+        );
+        $widgets = Timber::get_posts($args);
+        $context['widgets'] = $widgets;
+
+        foreach ($widgets as $widget) {
+            if ($widget->slug == 'contact-information') {
+                $context['contact_widget'] = $widget;
+            }
+        }
+
         return $context;
     }
 
     public function timmy_sizes($sizes)
     {
         return array(
+            'thumbnail' => array(
+              'resize' => array(200, 200),
+              'srcset' => array(0.5, 2, 3),
+              'sizes' => '50vw',
+              'oversize' => array(
+                  'allow' => false,
+                  'style_attr' => false,
+              ),
+            ),
             'portrait-50vw' => array(
-                'resize' => array(800, 1200),
+                'resize' => array(800, 1080),
                 'srcset' => array(0.5, 2, 3),
-                'sizes' => '(min-width: 640px) 50vw, 100vw',
+                'sizes' => '50vw',
                 'oversize' => array(
                     'allow' => false,
                     'style_attr' => false,
                 ),
+            ),
+            'portrait-25vw' => array(
+              'resize' => array(400, 540),
+              'srcset' => array(0.5, 2, 3),
+              'sizes' => '25vw',
+              'oversize' => array(
+                  'allow' => false,
+                  'style_attr' => false,
+              ),
             ),
             'landscape-100vw' => array(
-                'resize' => array(1600, 1066),
+              'resize' => array(1600, 1070),
+              'srcset' => array(0.5, 2, 3),
+              'sizes' => '100vw',
+              'oversize' => array(
+                  'allow' => false,
+                  'style_attr' => false,
+              ),
+            ),
+            'landscape-50vw' => array(
+                'resize' => array(800, 535),
                 'srcset' => array(0.5, 2, 3),
-                'sizes' => '100vw',
+                'sizes' => '50vw',
                 'oversize' => array(
                     'allow' => false,
                     'style_attr' => false,
                 ),
             ),
+            'landscape-33vw' => array(
+              'resize' => array(533, 356),
+              'srcset' => array(0.5, 2, 3),
+              'sizes' => '33vw',
+              'oversize' => array(
+                  'allow' => false,
+                  'style_attr' => false,
+              ),
+          ),
         );
     }
 

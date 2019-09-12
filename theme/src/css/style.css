@@ -10,6 +10,8 @@
 /*  */
 @import "./components/components.pcss";
 @import "./components/images.pcss";
+@import "./components/slider.pcss";
+@import "./components/expander.pcss";
 /*  */
 @import "./layout/barba.pcss";
 @import "./layout/header.pcss";
