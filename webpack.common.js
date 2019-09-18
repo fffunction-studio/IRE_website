@@ -96,7 +96,7 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'wp-content/themes', config.slug),
+    path: path.resolve(__dirname, 'server/wp-content/themes', config.slug),
     filename: 'js/[name].js'
   },
 

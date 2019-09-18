@@ -5,3 +5,4 @@ docker-runtime
 .vscode
 .DS_Store
 www
+server
