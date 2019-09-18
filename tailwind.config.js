@@ -1,7 +1,19 @@
 module.exports = {
   theme: {
     fontFamily: {
-      serif: ['Life', 'serif'],
+      serif: ['Life', 'serif']
+    },
+    fontSize: {
+      'xs': '.75rem',
+      'sm': '.875rem',
+      'base': '1rem',
+      'lg': '1.125rem',
+      'xl': '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.75rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem'
     },
     extend: {
       colors: {
@@ -21,8 +33,8 @@ module.exports = {
         '9/12': '75%',
         '10/12': '83.33333%',
         '11/12': '91.66667%',
-        'full': '100%',
-      },
+        full: '100%'
+      }
     }
   },
   variants: {},

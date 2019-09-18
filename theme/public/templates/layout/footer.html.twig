@@ -4,9 +4,8 @@
       {% block footer %}
 
         <div class="flex justify-center">
-        <div class="text-center">
-          <p>{{ contact_widget.email }}</p>
-          <p>{{ contact_widget.phone }}</p>
+        <div class="text-center text-xl">
+          {% include "components/contact.html.twig" %}
         </div>
         </div>
 

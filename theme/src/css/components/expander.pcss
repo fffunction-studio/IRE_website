@@ -6,3 +6,18 @@
     @apply h-auto;
   }
 }
+
+.expander-activator {
+  .expander-arrow {
+    transition: $short ease;
+  }
+
+  &.active,
+  &.active .expander-button {
+    font-style: italic;
+  }
+
+  &.active .expander-arrow {
+    transform: rotate(180deg);
+  }
+}

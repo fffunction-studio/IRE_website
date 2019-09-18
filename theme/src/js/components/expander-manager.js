@@ -8,6 +8,7 @@ class ExpanderManager extends CoreModule {
 
     this.activators.forEach((activator) => {
       activator.addEventListener('click', this.onClick)
+      activator.element = activator
     })
 
     return super.init()
@@ -34,7 +35,9 @@ class ExpanderManager extends CoreModule {
           event.currentTarget.getAttribute('data-expander-once') == 'true'
         )
       ) {
+        this.element.classList.toggle('active')
         targetElement.classList.toggle('active')
+        
         let content = targetElement.querySelector('.expander-content')
 
         console.log(content.offsetHeight)
