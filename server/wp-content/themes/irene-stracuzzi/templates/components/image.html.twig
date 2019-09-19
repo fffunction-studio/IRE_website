@@ -1,9 +1,0 @@
-{% if image is not defined %}
-
-  <img class="{{ image_class|join(' ') }}" src="https://source.unsplash.com/random/3200x2400" alt="placeholder">
-
-{% else %}
-
-  <img class="{{ image_class|join(' ') }}" {{ image|get_timber_image_responsive(size) }}>
-
-{% endif %}
