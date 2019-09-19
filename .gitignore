@@ -1,8 +1,5 @@
-vendor
-node_modules
-wp-content
-docker-runtime
 .vscode
 .DS_Store
-www
+vendor
+node_modules
 server
