@@ -91,7 +91,7 @@ module.exports = {
   entry: {
     theme: './theme/src/index.js',
     head: './theme/src/head.js',
-    app: './theme/src/app.js',
+    cart: './theme/src/cart.js',
     landing: './theme/src/landing.js',
   },
 

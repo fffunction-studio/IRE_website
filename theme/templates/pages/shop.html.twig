@@ -1,0 +1,40 @@
+{% extends "core/base.html.twig" %}
+
+{% set min_class = ['min-h-screen'] %}
+
+{% block main %}
+
+  <section class="section fixed w-full header-offset z-50">
+    <div class="container">
+
+      {% set cart = "[wp_compact_cart]" %}
+
+      {{ cart|shortcodes }}
+
+    </div>
+  </section>
+
+  <section class="section header-offset-extra">
+    <div class="container">
+
+      {% for item in products %}
+
+        <div class="row">
+          <div class="col">
+
+            {{ item.title }}
+
+            {% set product = "[wp_cart_button name='" ~ item.title ~ "' price='" ~ item.meta('cost') ~ "']" %}
+
+            {{ product|shortcodes }}
+          </div>
+        </div>
+
+      {% endfor %}
+
+    </div>
+  </section>
+
+  {% include "layout/footer.html.twig" %}
+
+{% endblock %}

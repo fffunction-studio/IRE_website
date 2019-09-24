@@ -117,6 +117,12 @@ class IreneStracuzzi extends Timber\Site
             }
         }
 
+        $args = array(
+          'post_type' => 'product'
+        );
+        $products = Timber::get_posts($args);
+        $context['products'] = $products;
+
         return $context;
     }
 

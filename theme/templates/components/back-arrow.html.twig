@@ -1,0 +1,25 @@
+{% if link is not defined %}
+  {% set link = "javascript:history.back()" %}
+{% endif %}
+
+<section class="section fixed w-full pointer-events-none">
+  <div class="container">
+    <div class="back-arrow pointer-events-auto flex">
+      <a href="{{ link }}">
+
+        <svg class="stroke-current" width="52px" height="21px" viewbox="0 0 52 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Symbols" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+            <g id="Arrow-Back">
+              <g id="Group">
+                <path d="M1,10.5 L51,10.5" id="Line"></path>
+                <path d="M0.5,10.5 L10.2380314,0.761968559" id="Line-2"></path>
+                <path d="M0.5,20.5 L10.2380314,10.7619686" id="Line-2-Copy" transform="translate(5.500000, 15.500000) scale(1, -1) translate(-5.500000, -15.500000) "></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+
+      </a>
+    </div>
+  </div>
+</section>

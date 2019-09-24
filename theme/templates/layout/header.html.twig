@@ -1,16 +1,16 @@
-<header class="header-main header-unpin z-50">
+<header class="header-main header-unpin z-40 pointer-events-none">
   <div class="container">
 
     <nav id="nav-main" class="nav-main flex justify-between items-center" role="navigation">
       <div class="nav-left flex justify-start w-4/12"></div>
 
-      <div class="nav-center flex justify-center w-4/12">
+      <div class="nav-center flex justify-center w-4/12 pointer-events-auto">
         <a href="{{ site.link }}">
           Irene Stracuzzi
         </a>
       </div>
       <div class="nav-right flex justify-end w-4/12">
-        <div class="nav-menu text-3xl lg:text-base z-40">
+        <div class="nav-menu text-3xl lg:text-base z-40 pointer-events-auto">
           {% include "components/menu.html.twig" with {
             "menu" : menu.get_items
           } %}
@@ -21,6 +21,7 @@
           <span></span>
         </div>
       </div>
+
     </nav>
 
   </div>
