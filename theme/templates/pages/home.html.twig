@@ -4,9 +4,25 @@
 
   <div class="relative min-h-screen w-full">
 
+    <div class="image-swapper-wrapper absolute inset-0">
+      <div id="swapper-0" class="image-swapper absolute inset-0 bg-gray-200"></div>
+      <div id="swapper-1" class="image-swapper absolute inset-0 bg-gray-300"></div>
+      <div id="swapper-2" class="image-swapper absolute inset-0 bg-gray-400"></div>
+      <div id="swapper-3" class="image-swapper absolute inset-0 bg-gray-500"></div>
+      <div id="swapper-4" class="image-swapper absolute inset-0 bg-gray-600"></div>
+      <div id="swapper-5" class="image-swapper absolute inset-0 bg-gray-500"></div>
+      <div id="swapper-6" class="image-swapper absolute inset-0 bg-gray-400"></div>
+      <div id="swapper-7" class="image-swapper absolute inset-0 bg-gray-300"></div>
+      <div id="swapper-8" class="image-swapper absolute inset-0 bg-gray-200"></div>
+    </div>
+
     <div class="absolute w-full bottom-0">
       {% include "layout/footer.html.twig" %}
     </div>
   </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ theme.link }}/js/landing.js"></script>
 {% endblock %}

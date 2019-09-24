@@ -24,6 +24,11 @@ class ExpanderManager extends CoreModule {
     event.preventDefault()
 
     let target = event.currentTarget.getAttribute('data-expander-target')
+    let duration = 400
+
+    if (event.currentTarget.getAttribute('data-expander-instant') == 'true') {
+      duration = 1
+    }
 
     if (target) {
       let targetElement = document.getElementById(target)
@@ -46,14 +51,14 @@ class ExpanderManager extends CoreModule {
           anime({
             targets: targetElement,
             height: [0, content.offsetHeight],
-            duration: 400,
+            duration: duration,
             easing: 'easeInQuad',
           })
         } else {
           anime({
             targets: targetElement,
             height: [content.offsetHeight, 0],
-            duration: 400,
+            duration: duration,
             easing: 'easeInQuad'
           })
         }
@@ -62,7 +67,7 @@ class ExpanderManager extends CoreModule {
       if (event.currentTarget.getAttribute('data-expander-scroll') == 'true') {
         setTimeout(() => {
           zenscroll.to(targetElement, 800)
-        }, 200)
+        }, 100)
       }
     }
 

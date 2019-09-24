@@ -8,10 +8,10 @@
 
         {% if slide.acf_fc_layout == "landscape" %}
 
-          <div class="row justify-center items-center h-full">
-              <div class="col w-10/12">
-                {% include "components/image.html.twig" with { 
-                  image_class: ['slide-image, mx-auto'],
+          <div class="flex justify-center items-center h-full">
+              <div class="col h-full w-10/12">
+                {% include "components/figure.html.twig" with { 
+                  image_class: ['contain'],
                   image: slide.image,
                   size: 'landscape-100vw'
                 } %}
@@ -20,17 +20,17 @@
 
         {% elseif slide.acf_fc_layout == 'double_landscape' %}
 
-          <div class="row justify-center items-center h-full">
-            <div class="col w-6/12">
-              {% include "components/image.html.twig" with { 
-                image_class: ['slide-image ml-auto mr-0'],
+          <div class="flex justify-center items-center h-full">
+            <div class="col h-full w-6/12">
+              {% include "components/figure.html.twig" with { 
+                image_class: ['contain', 'right'],
                 image: slide.image_first,
                 size: 'landscape-100vw'
               } %}
             </div>
-            <div class="col w-6/12">
-              {% include "components/image.html.twig" with { 
-                image_class: ['slide-image mr-auto ml-0'],
+            <div class="col h-full w-6/12">
+              {% include "components/figure.html.twig" with { 
+                image_class: ['contain', 'left'],
                 image: slide.image_second,
                 size: 'landscape-50vw'
               } %}
@@ -39,10 +39,10 @@
 
         {% elseif slide.acf_fc_layout == 'portrait' %}
 
-          <div class="row justify-center items-center h-full">
-              <div class="col w-5/12">
-                {% include "components/image.html.twig" with { 
-                  image_class: ['slide-image mx-auto'],
+          <div class="flex justify-center items-center h-full">
+              <div class="col h-full w-5/12">
+                {% include "components/figure.html.twig" with { 
+                  image_class: ['contain'],
                   image: slide.image,
                   size: 'portrait-50vw'
                 } %}
@@ -51,17 +51,17 @@
 
         {% elseif slide.acf_fc_layout == 'double_portrait' %}
 
-          <div class="row justify-center items-center h-full">
-              <div class="col w-5/12">
-                {% include "components/image.html.twig" with { 
-                  image_class: ['slide-image, ml-auto mr-0'],
+          <div class="flex justify-center items-center h-full">
+              <div class="col h-full w-5/12">
+                {% include "components/figure.html.twig" with { 
+                  image_class: ['contain', 'right'],
                   image: slide.image_first,
                   size: 'portrait-50vw'
                 } %}
               </div>
-              <div class="col w-5/12">
-                {% include "components/image.html.twig" with { 
-                  image_class: ['slide-image, mr-auto ml-0'],
+              <div class="col h-full w-5/12">
+                {% include "components/figure.html.twig" with { 
+                  image_class: ['contain', 'left'],
                   image: slide.image_second,
                   size: 'portrait-50vw'
                 } %}

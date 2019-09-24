@@ -2,22 +2,153 @@
 
 {% block main %}
 
-  <div class="relative min-h-screen w-full">
-
-    <section class="section header-offset">
-      <div class="container">
-        <div class="row">
-          <div class="col w-6/12 mx-auto text-center">
-            {{ post.meta('header') }}
-          </div>
+  <section class="section header-offset">
+    <div class="container">
+      <div class="row">
+        <div class="col w-6/12 mx-auto text-center">
+          {{ post.meta('header') }}
         </div>
       </div>
-    </section>
-
-    <div class="absolute w-full bottom-0">
-      {% include "layout/footer.html.twig" %}
     </div>
+  </section>
 
-  </div>
+  {% for item in post.meta("work_components") %}
+
+    {% if item.acf_fc_layout == "big_landscape_small_portrait" %}
+
+      <section class="section big-landscape-small-portrait text-xl mb-10">
+        <div class="container">
+          <div class="row justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
+            <div class="col w-7/12">
+
+              <a href="{{ item.big_landscape_project.link }}">
+                {% include "components/image.html.twig" with {
+                  image : item.big_landscape_project.thumbnail,
+                  image_class: ["regular"],
+                  size: "landscape-50vw"
+                } %}
+
+                <div class="flex justify-center mt-2">
+                  <p>{{ item.big_landscape_project.title }}</p>
+                </div>
+              </a>
+
+            </div>
+            <div class="col w-3/12">
+
+              <a href="{{ item.small_portrait_project.link }}">
+                {% include "components/image.html.twig" with {
+                  image : item.small_portrait_project.thumbnail,
+                  image_class: ["regular"],
+                  size: "portrait-25vw"
+                } %}
+
+                <div class="flex justify-center mt-2">
+                  <p>{{ item.small_portrait_project.title }}</p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    {% elseif item.acf_fc_layout == 'big_portrait_small_landscape' %}
+
+      <section class="section big-portrait-small-landscape text-xl mb-10">
+        <div class="container">
+          <div class="row justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
+            <div class="col w-5/12">
+
+              <a href="{{ item.big_portrait_project.link }}">
+                {% include "components/image.html.twig" with {
+                  image : item.big_portrait_project.thumbnail,
+                  image_class: ["regular"],
+                  size: "portrait-50vw"
+                } %}
+
+                <div class="flex justify-center mt-2">
+                  <p>{{ item.big_portrait_project.title }}</p>
+                </div>
+              </a>
+
+            </div>
+            <div class="col w-5/12">
+
+              <a href="{{ item.small_landscape_project.link }}">
+                {% include "components/image.html.twig" with {
+                  image : item.small_landscape_project.thumbnail,
+                  image_class: ["regular"],
+                  size: "landscape-50vw"
+                } %}
+
+                <div class="flex justify-center mt-2">
+                  <p>{{ item.small_landscape_project.title }}</p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    {% elseif item.acf_fc_layout == 'big_portrait_two_small_portraits' %}
+
+      <section class="section big-portrait-two-small-portraits text-xl mb-10">
+        <div class="container">
+          <div class="row justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
+            <div class="col w-5/12">
+
+              <a href="{{ item.big_portrait_project.link }}">
+                {% include "components/image.html.twig" with {
+                  image : item.big_portrait_project.thumbnail,
+                  image_class: ["regular"],
+                  size: "portrait-50vw"
+                } %}
+                <div class="flex justify-center mt-2">
+                  <p>{{ item.big_portrait_project.title }}</p>
+                </div>
+              </a>
+
+            </div>
+            <div class="col w-3/12">
+
+              <a href="{{ item.small_portrait_project_first.link }}">
+                {% include "components/image.html.twig" with {
+                  image : item.small_portrait_project_first.thumbnail,
+                  image_class: ["regular"],
+                  size: "portrait-25vw"
+                } %}
+                <div class="flex justify-center mt-2">
+                  <p>{{ item.small_portrait_project_first.title }}</p>
+                </div>
+              </a>
+
+            </div>
+            <div class="col w-3/12">
+
+              <a href="{{ item.small_portrait_project_second.link }}">
+                {% include "components/image.html.twig" with {
+                  image : item.small_portrait_project_second.thumbnail,
+                  image_class: ["regular"],
+                  size: "portrait-25vw"
+                } %}
+                <div class="flex justify-center mt-2">
+                  <p>{{ item.small_portrait_project_second.title }}</p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    {% endif %}
+
+  {% endfor %}
+
+  {% include "layout/footer.html.twig" %}
+
+</div>
 
 {% endblock %}

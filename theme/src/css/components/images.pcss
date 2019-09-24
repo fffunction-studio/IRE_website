@@ -1,13 +1,18 @@
 figure {
-  @apply relative;
+  @apply relative w-full h-full;
 
   img {
     @apply absolute w-full h-full;
-  }
 
-  &.contain {
-    img {
+    &.contain {
       object-fit: contain;
+
+      &.right {
+        object-position: right;
+      }
+      &.left {
+        object-position: left;
+      }
     }
   }
 
@@ -31,7 +36,8 @@ figure {
 }
 
 img {
-  @apply relative block w-auto h-full;
+  /* @apply relative block w-auto h-full; */
+  @apply relative block w-full h-auto;
 
   &.regular {
     @apply relative block w-full h-auto;
