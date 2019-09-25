@@ -222,7 +222,7 @@ class IreneStracuzzi extends Timber\Site
     public function add_to_twig($twig)
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
-        $twig->addFilter(new Twig_SimpleFilter('my_filter', array($this, 'my_filter')));
+        $twig->addFilter(new Twig_SimpleFilter('no_br_mobile', array($this, 'no_br_mobile')));
 
         return $twig;
     }
@@ -231,9 +231,14 @@ class IreneStracuzzi extends Timber\Site
      *
      * @param string $text being 'foo', then returned 'foo bar!'
      */
-    public function my_filter($text)
+    public function no_br_mobile($text)
     {
-        $text .= ' bar!';
+        $exploded = explode('<br />', $text);
+
+        $text = '';
+        foreach ($exploded as $part) {
+          $text .= $part . '<br class="hidden lg:block">';
+        }
 
         return $text;
     }

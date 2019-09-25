@@ -1,11 +1,11 @@
 .nav-main {
-  @apply relative text-xl;
+  @apply relative text-lg;
 
   .nav-menu {
-    @apply fixed w-full h-screen flex flex-col bg-gray-600 text-white;
-    top: 0;
-    left: 100vw;
-    padding: calc($header-height + $site-offset) $site-offset;
+    @apply fixed w-full h-screen flex flex-col bg-white text-black;
+    top: -100vh;
+    left: 0;
+    padding: calc(2 * $site-offset) $site-offset;
     .nav-menu-item {
       @apply ml-0;
     }
@@ -16,14 +16,15 @@
   }
 
   .nav-burger {
-    @apply flex flex-col justify-between;
+    @apply flex flex-col justify-between p-1;
+    box-sizing: content-box;
     font-size: inherit;
     width: $burger-width;
     height: $burger-height;
     span {
       @apply bg-black w-full self-end;
-      height: 2px;
-      transition: $medium easeOutCirc;
+      height: 1px;
+      transition: $short ease-out;
     }
 
     @mixin hover-child span:first-child, margin-top, 4px;
@@ -31,22 +32,29 @@
   }
   &.animating {
     .nav-menu {
-      transition: left $medium easeInOutCirc;
+      transition: top $short ease-out;
     }
   }
   &.active {
     .nav-menu {
-      left: 10vw;
+      top: 0;
+
+      .nav-menu-item {
+        @apply py-4 border-b border-black;
+
+        &:first-child {
+          @apply border-t border-black;
+        }
+      }
     }
     .nav-burger {
       span {
-        @apply bg-white;
         margin: 0 !important;
         &:first-child {
-          transform: translateY(calc($burger-height / 2 - 1px));
+          transform: translateY(calc($burger-height / 2 - 1px)) rotate(45deg);
         }
         &:last-child {
-          transform: translateY(calc($burger-height / -2 + 1px));
+          transform: translateY(calc($burger-height / -2 + 1px)) rotate(-45deg);
         }
       }
     }
@@ -57,7 +65,7 @@
   .nav-main {
     &.active {
       .nav-menu {
-        left: 20vw;
+        top: 0;
       }
     }
   }
@@ -65,6 +73,8 @@
 
 @screen lg {
   .nav-main {
+    @apply text-xl;
+
     .nav-menu {
       @apply relative w-auto h-auto inset-auto flex-row p-0 bg-transparent text-black;
       .nav-menu-item {

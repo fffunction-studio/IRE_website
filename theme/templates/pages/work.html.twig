@@ -2,24 +2,26 @@
 
 {% block main %}
 
-  <section class="section header-offset">
+  <section class="section lg:fixed w-full header-offset z-40">
     <div class="container">
       <div class="row">
-        <div class="col w-6/12 mx-auto text-center">
-          {{ post.meta('header') }}
+        <div class="col mb-10 w-10/12 lg:w-6/12 mx-auto text-center">
+          {{ post.meta('header')|no_br_mobile }}
         </div>
       </div>
     </div>
   </section>
 
+  <div class="header-offset-extra hidden lg:block"></div>
+
   {% for item in post.meta("work_components") %}
 
     {% if item.acf_fc_layout == "big_landscape_small_portrait" %}
 
-      <section class="section big-landscape-small-portrait text-xl mb-10">
+      <section class="section big-landscape-small-portrait text-lg lg:text-xl">
         <div class="container">
-          <div class="row justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
-            <div class="col w-7/12">
+          <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
+            <div class="col mb-10 w-full lg:w-7/12">
 
               <a href="{{ item.big_landscape_project.link }}">
                 {% include "components/image.html.twig" with {
@@ -34,7 +36,7 @@
               </a>
 
             </div>
-            <div class="col w-3/12">
+            <div class="col mb-10 w-8/12 lg:w-3/12">
 
               <a href="{{ item.small_portrait_project.link }}">
                 {% include "components/image.html.twig" with {
@@ -55,10 +57,10 @@
 
     {% elseif item.acf_fc_layout == 'big_portrait_small_landscape' %}
 
-      <section class="section big-portrait-small-landscape text-xl mb-10">
+      <section class="section big-portrait-small-landscape text-lg lg:text-xl">
         <div class="container">
-          <div class="row justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
-            <div class="col w-5/12">
+          <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
+            <div class="col mb-10 w-8/12 lg:w-5/12">
 
               <a href="{{ item.big_portrait_project.link }}">
                 {% include "components/image.html.twig" with {
@@ -73,7 +75,7 @@
               </a>
 
             </div>
-            <div class="col w-5/12">
+            <div class="col mb-10 w-full lg:w-5/12">
 
               <a href="{{ item.small_landscape_project.link }}">
                 {% include "components/image.html.twig" with {
@@ -94,10 +96,10 @@
 
     {% elseif item.acf_fc_layout == 'big_portrait_two_small_portraits' %}
 
-      <section class="section big-portrait-two-small-portraits text-xl mb-10">
+      <section class="section big-portrait-two-small-portraits text-lg lg:text-xl">
         <div class="container">
-          <div class="row justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
-            <div class="col w-5/12">
+          <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
+            <div class="col mb-10 w-8/12 lg:w-5/12">
 
               <a href="{{ item.big_portrait_project.link }}">
                 {% include "components/image.html.twig" with {
@@ -111,7 +113,7 @@
               </a>
 
             </div>
-            <div class="col w-3/12">
+            <div class="col mb-10 w-8/12 lg:w-3/12">
 
               <a href="{{ item.small_portrait_project_first.link }}">
                 {% include "components/image.html.twig" with {
@@ -125,7 +127,7 @@
               </a>
 
             </div>
-            <div class="col w-3/12">
+            <div class="col mb-10 w-8/12 lg:w-3/12">
 
               <a href="{{ item.small_portrait_project_second.link }}">
                 {% include "components/image.html.twig" with {
