@@ -39,8 +39,10 @@ class SwiperManager extends CoreModule {
 
       counter.querySelector('.slider-total').innerHTML = instance.slides.length - 2
       
-      next.addEventListener('click', this.onClick)
-      next.instance = instance
+      if (next) {
+        next.addEventListener('click', this.onClick)
+        next.instance = instance
+      }
 
       container.addEventListener('click', this.onClick)
       container.instance = instance 
@@ -55,7 +57,9 @@ class SwiperManager extends CoreModule {
 
   destroy() {
     this.sliders.forEach(slider => {
-      slider.next.removeEventListener('click', this.onClick)
+      if (slider.nex) {
+        slider.next.removeEventListener('click', this.onClick)
+      }
       slider.container.removeEventListener('click', this.onClick)
       slider.instance.destroy()
     })

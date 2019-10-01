@@ -4,7 +4,7 @@
 
 {% block main %}
 
-  <section class="section fixed w-full header-offset z-40">
+  <section class="section fixed w-full header-offset-desktop z-40">
     <div class="container">
 
       {% set cart = "[wp_compact_cart]" %}
@@ -14,23 +14,142 @@
     </div>
   </section>
 
-  <section class="section header-offset-extra">
-    <div class="container">
+  <div class="header-offset-extra-spacer hidden lg:block"></div>
+  <div class="header-offset lg:hidden"></div>
 
-      {% for item in products %}
+  {% for item in products %}
 
+    {% set product = "[wp_cart_button name='" ~ item.title ~ "' price='" ~ item.meta("cost") ~ "']" %}
+
+    {# <section class="section header-offset lg:hidden">
+      <div class="container">
         <div class="row">
-          <div class="col">
+          {% for slide in item.meta("slider") %}
 
-            {{ item.title }}
+            {% if slide.acf_fc_layout == "landscape" %}
 
-            {% set product = "[wp_cart_button name='" ~ item.title ~ "' price='" ~ item.meta('cost') ~ "']" %}
+              <div class="col w-full mb-4">
+                {% include "components/figure.html.twig" with {
+                  figure_class : "landscape",
+                  image_class: '',
+                  image: slide.image,
+                  size: 'landscape-50vw'
+                } %}
+              </div>
 
-            {{ product|shortcodes }}
+            {% elseif slide.acf_fc_layout == "double_portrait" %}
+
+              <div class="col w-full mb-4">
+                {% include "components/figure.html.twig" with {
+                  figure_class : "portrait",
+                  image_class: '',
+                  image: slide.image_first,
+                  size: 'portrait-50vw'
+                } %}
+              </div>
+
+              <div class="col w-full mb-4">
+                {% include "components/figure.html.twig" with {
+                  figure_class : "portrait",
+                  image_class: '',
+                  image: slide.image_second,
+                  size: 'portrait-50vw'
+                } %}
+              </div>
+
+            {% endif %}
+
+          {% endfor %}
+
+        </div>
+      </div>
+    </section> #}
+
+    <section class="section slider">
+      <div class="container">
+        <div class="row justify-center lg:hidden">
+          <div class="col w-full flex flex-col items-center">
+            <h2 class="italic">{{ item.title }}</h2>
+            <p class="text-center">
+              {{ item.meta('product_details') }}
+            </p>
+          </div>
+
+          <div class="col w-full flex justify-center my-4">
+            <div>
+              &euro;
+              {{ item.meta('cost')|currency }}
+            </div>
+            <div class="ml-4">
+              {{ product|shortcodes }}
+            </div>
           </div>
         </div>
 
-      {% endfor %}
+        {% include "components/product-slider.html.twig" with {
+          slides: item.meta('slider')
+        } %}
+
+        <div class="row justify-center mt-4 lg:text-xl">
+          <div class="col w-full text-center lg:w-2/12 lg:text-left">
+            <div class="slider-counter">
+              <span class="slider-index"></span>
+              /
+              <span class="slider-total"></span>
+            </div>
+          </div>
+          <div class="col w-4/12 hidden lg:flex flex-col items-center">
+            <h2 class="italic">{{ item.title }}</h2>
+            <p class="text-center">
+              {{ item.meta('product_details') }}
+            </p>
+          </div>
+          <div class="col w-2/12 hidden lg:flex justify-end">
+            <div>
+              &euro;
+              {{ item.meta('cost')|currency }}
+            </div>
+            <div class="ml-4">
+              {{ product|shortcodes }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-center mt-4 lg:mt-12 mb-12 lg:mb-24">
+          <div class="col w-full lg:w-6/12">
+            <p>
+              {{ item.meta('description') }}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  {% endfor %}
+
+  <section class="section">
+    <div class="container">
+
+      <div class="row mb-12 lg:mb-24">
+
+        <div class="col w-full">
+          <div class="expander-activator border-t border-black flex justify-between" data-expander-once="false" data-expander-scroll="false" data-expander-target="terms-conditions">
+            <button class="expander-button my-2 lg:text-xl">Terms &amp; Conditions</button>
+            <button class="expander-button my-2">
+              <img class="expander-arrow" src="{{ theme.link }}/images/arrow-down.svg" alt="">
+            </button>
+          </div>
+          <div id="terms-conditions" class="expander">
+            <div class="expander-content">
+              <p>
+                {{ post.meta('terms_conditions') }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
     </div>
   </section>

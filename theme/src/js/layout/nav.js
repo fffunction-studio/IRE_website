@@ -5,6 +5,7 @@ import { CoreEvent } from '../core/core-event'
 class Nav extends CoreModule {
   init(options) {
     this.element = options.element
+
     this.addEventListeners()
 
     this.toggles = document.querySelectorAll('.toggle-menu')
@@ -17,6 +18,8 @@ class Nav extends CoreModule {
       closer.addEventListener('click', this.onClose)
     })
 
+    this.activateMenuItem()
+    
     return super.init()
   }
 
@@ -60,6 +63,12 @@ class Nav extends CoreModule {
         }
       })
     )
+
+    this.events.push(
+      new CoreEvent('barba-before-enter', () => {
+        this.activateMenuItem()
+      })
+    )
   }
 
   closeMenu() {
@@ -94,6 +103,22 @@ class Nav extends CoreModule {
         this.element.classList.remove('animating')
       }, 400)
     }
+  }
+
+  activateMenuItem() {
+    let namespace = document.querySelector('.main').getAttribute('data-barba-namespace')
+
+    let menuItems = document.querySelectorAll('.nav-menu-item')
+
+    menuItems.forEach(item => {
+        item.classList.remove('italic')
+    })
+
+    menuItems.forEach(item => {
+      if (item.getAttribute('data-slug') == namespace) {
+        item.classList.add('italic')
+      }
+    })
   }
 }
 

@@ -1,16 +1,13 @@
 {% if menu %}
 
-  <ul class="list-reset flex flex-col lg:flex-row">
+  <ul class="list-reset flex flex-col md:flex-row">
 
     {% for item in menu %}
 
-      <li class="nav-menu-item close-menu">
-        <a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-
-        {% include "components/menu.html.twig" with {
-          "menu" : item.get_children
-        } %}
-
+      <li class="nav-menu-item close-menu text-xl" data-slug="{{ item.slug }}">
+        <a target="{{ item.target }}" href="{{ item.link }}">
+          {{ item.title }}{% if loop.index < menu|length %}<span class="hidden md:inline">,</span>{% endif %}&nbsp;
+        </a>
       </li>
 
     {% endfor %}

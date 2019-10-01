@@ -1,21 +1,22 @@
 <template>
   <div id="cart-app">
+
     <section v-if="isEmpty" class="section header-offset-extra">
       <div class="container">
         <div class="row">
-          <div class="col ml-1/12">
+          <div class="col mx-auto w-9/12 lg:w-10/12 text-lg lg:text-xl">
             <p>Mhm. You have no items in your shopping cart…</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section v-if="!isEmpty" class="relative min-h-screen header-offset-extra pb-40 text-xl">
+    <section v-if="!isEmpty" class="relative min-h-screen header-offset-extra pb-40 text-lg lg:text-xl">
       <div class="container">
-        <div v-for="(item, index) in items" class="product" v-bind:key="index">
+        <div v-for="(item, index) in items" class="product mb-12" v-bind:key="index">
           <div class="row">
-            <div class="col ml-1/12 w-1/24">{{ item.amount }}</div>
-            <div class="col w-1/24 flex items-center">
+            <div class="col ml-1/12 w-1/12 lg:w-1/24">{{ item.amount }}</div>
+            <div class="col w-2/12 lg:w-1/24 flex justify-center items-center">
               <div class="pb-1">
                 <svg
                   width="12px"
@@ -49,15 +50,15 @@
                 </svg>
               </div>
             </div>
-            <div class="col w-10/12">{{ item.name }}</div>
+            <div class="col w-8/12 lg:w-10/12 italic">{{ item.name }}</div>
           </div>
           <div class="row">
-            <div class="col ml-2/12">{{ item.cost }}</div>
+            <div class="col ml-4/12 lg:ml-2/12">{{ item.cost }}</div>
           </div>
           <div class="row">
             <div
               v-bind:id="'product-' + index"
-              class="col ml-2/12"
+              class="col ml-4/12 lg:ml-2/12"
             >{{ appendChild('product-' + index, item.removeForm) }}</div>
           </div>
         </div>
@@ -66,15 +67,16 @@
       <div class="absolute bottom-0 w-full pb-20">
         <div class="container">
           <div class="row">
-            <div class="col ml-1/12 w-1/12">Subtotal</div>
-            <div class="col w-1/12">{{ totalCost }}</div>
-            <div class="col w-8/12 text-right">
+            <div class="col ml-1/12 w-3/12 lg:w-1/12">Subtotal</div>
+            <div class="col w-3/12">{{ totalCost }}</div>
+            <div class="col w-4/12 lg:w-8/12 text-right">
               <div id="checkout">{{ appendChild('checkout', checkoutForm) }}</div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </div>
 </template>
 
@@ -148,7 +150,9 @@ export default {
     appendChild(id, element) {
       this.$nextTick(() => {
         let parent = document.getElementById(id);
-        parent.appendChild(element);
+        if (element) {
+          parent.appendChild(element);
+        }
       });
     }
   },

@@ -6,7 +6,7 @@
 
 {% else %}
 
-  <figure>
+  <figure class="{{ figure_class|join(' ') }}">
     <img class="{{ image_class|join(' ') }}" {{ image|get_timber_image_responsive(size) }}>
   </figure>
 

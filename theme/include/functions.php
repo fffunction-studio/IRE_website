@@ -223,6 +223,7 @@ class IreneStracuzzi extends Timber\Site
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addFilter(new Twig_SimpleFilter('no_br_mobile', array($this, 'no_br_mobile')));
+        $twig->addFilter(new Twig_SimpleFilter('currency', array($this, 'currency')));
 
         return $twig;
     }
@@ -241,6 +242,24 @@ class IreneStracuzzi extends Timber\Site
         }
 
         return $text;
+    }
+
+    public function currency($number)
+    {
+        $round = round($number, 2);
+
+        $exploded = explode('.', $round);
+
+        if (sizeof($exploded) > 1) {
+          if ((int)$exploded[1] < 10) {
+            $exploded[1] .= '0';
+            $number = $exploded[0] . ',' . $exploded[1];
+          }
+        } else {
+          $number = $exploded[0] . ',-';
+        }
+        
+        return $number;
     }
 }
 new IreneStracuzzi();

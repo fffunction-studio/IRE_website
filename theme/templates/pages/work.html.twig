@@ -2,7 +2,7 @@
 
 {% block main %}
 
-  <section class="section lg:fixed w-full header-offset z-40">
+  <section class="section lg:fixed w-full header-offset z-40 text-lg lg:text-xl">
     <div class="container">
       <div class="row">
         <div class="col mb-10 w-10/12 lg:w-6/12 mx-auto text-center">
@@ -12,7 +12,7 @@
     </div>
   </section>
 
-  <div class="header-offset-extra hidden lg:block"></div>
+  <div class="header-offset-extra-spacer hidden lg:block"></div>
 
   {% for item in post.meta("work_components") %}
 
@@ -30,8 +30,8 @@
                   size: "landscape-50vw"
                 } %}
 
-                <div class="flex justify-center mt-2">
-                  <p>{{ item.big_landscape_project.title }}</p>
+                <div class="flex justify-center mt-4">
+                  <p class="italic">{{ item.big_landscape_project.title }}</p>
                 </div>
               </a>
 
@@ -45,8 +45,8 @@
                   size: "portrait-25vw"
                 } %}
 
-                <div class="flex justify-center mt-2">
-                  <p>{{ item.small_portrait_project.title }}</p>
+                <div class="flex justify-center mt-4">
+                  <p class="italic">{{ item.small_portrait_project.title }}</p>
                 </div>
               </a>
 
@@ -69,8 +69,8 @@
                   size: "portrait-50vw"
                 } %}
 
-                <div class="flex justify-center mt-2">
-                  <p>{{ item.big_portrait_project.title }}</p>
+                <div class="flex justify-center mt-4">
+                  <p class="italic">{{ item.big_portrait_project.title }}</p>
                 </div>
               </a>
 
@@ -84,8 +84,8 @@
                   size: "landscape-50vw"
                 } %}
 
-                <div class="flex justify-center mt-2">
-                  <p>{{ item.small_landscape_project.title }}</p>
+                <div class="flex justify-center mt-4">
+                  <p class="italic">{{ item.small_landscape_project.title }}</p>
                 </div>
               </a>
 
@@ -107,8 +107,8 @@
                   image_class: ["regular"],
                   size: "portrait-50vw"
                 } %}
-                <div class="flex justify-center mt-2">
-                  <p>{{ item.big_portrait_project.title }}</p>
+                <div class="flex justify-center mt-4">
+                  <p class="italic">{{ item.big_portrait_project.title }}</p>
                 </div>
               </a>
 
@@ -121,8 +121,8 @@
                   image_class: ["regular"],
                   size: "portrait-25vw"
                 } %}
-                <div class="flex justify-center mt-2">
-                  <p>{{ item.small_portrait_project_first.title }}</p>
+                <div class="flex justify-center mt-4">
+                  <p class="italic">{{ item.small_portrait_project_first.title }}</p>
                 </div>
               </a>
 
@@ -135,8 +135,8 @@
                   image_class: ["regular"],
                   size: "portrait-25vw"
                 } %}
-                <div class="flex justify-center mt-2">
-                  <p>{{ item.small_portrait_project_second.title }}</p>
+                <div class="flex justify-center mt-4">
+                  <p class="italic">{{ item.small_portrait_project_second.title }}</p>
                 </div>
               </a>
 

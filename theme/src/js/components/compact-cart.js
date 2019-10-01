@@ -9,7 +9,13 @@ class CompactCart extends CoreModule {
       if (amount == 'Cart') {
         amount = 0
       }
-      element.innerHTML = '<a href="/cart" >Cart (' + amount + ')</a>'
+      element.innerHTML = '<a class="hidden lg:block" href="/cart" >Cart (' + amount + ')</a>'
+
+      if (amount == 0) {
+        element.innerHTML += '<a class="lg:hidden" href="/cart" ><div class="empty-cart-icon"></div></a>'
+      } else {
+        element.innerHTML += '<a class="lg:hidden" href="/cart" ><div class="cart-icon">' + amount + '</div></a>'
+      }
     }
 
     return super.init()

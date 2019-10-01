@@ -4,6 +4,14 @@
   &-extra {
     padding-top: 200px;
   }
+
+  &-extra-spacer {
+    padding-top: calc(200px - $section-offset);
+  }
+
+  &-desktop {
+    padding-top: $section-offset;
+  }
 }
 
 .header-main {
@@ -14,4 +22,10 @@
   @apply bg-transparent;
   padding-bottom: $section-offset;
   padding-top: $section-offset;
+}
+
+@screen lg {
+  .header-offset-desktop {
+    padding-top: $header-height;
+  }
 }
