@@ -19,37 +19,6 @@
               </div>
           </div>
 
-        {# {% elseif slide.acf_fc_layout == 'double_landscape' %}
-
-          <div class="flex justify-center items-center h-full">
-            <div class="col h-full w-6/12">
-              {% include "components/figure.html.twig" with { 
-                image_class: ['contain', 'right'],
-                image: slide.image_first,
-                size: 'landscape-100vw'
-              } %}
-            </div>
-            <div class="col h-full w-6/12">
-              {% include "components/figure.html.twig" with { 
-                image_class: ['contain', 'left'],
-                image: slide.image_second,
-                size: 'landscape-50vw'
-              } %}
-            </div>
-          </div>
-
-        {% elseif slide.acf_fc_layout == 'portrait' %}
-
-          <div class="flex justify-center items-center h-full">
-              <div class="col h-full w-5/12">
-                {% include "components/figure.html.twig" with { 
-                  image_class: ['contain'],
-                  image: slide.image,
-                  size: 'portrait-50vw'
-                } %}
-              </div>
-          </div> #}
-
         {% elseif slide.acf_fc_layout == 'double_portrait' %}
 
           <div class="row justify-center items-center h-full">

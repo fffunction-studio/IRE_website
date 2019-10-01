@@ -13,10 +13,39 @@ a,
 a:active,
 a:focus,
 a:visited {
-  @apply no-underline;
+  @apply no-underline relative;
   color: inherit;
 }
 
-a:hover {
-  @apply text-blue;
+.underline-static {
+  &::after {
+    @apply absolute left-0 w-full h-full border-b border-black;
+    bottom: 0.1em;
+    content: '';
+  }
+}
+
+.underline-in {
+  &::after {
+    @apply absolute left-0 w-full h-full border-b border-black;
+    bottom: 0.1em;
+    content: '';
+    transition: transform $short ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.mover {
+  @apply mt-8 opacity-0;
+  transition: $long ease;
+
+  &.move-in {
+    @apply mt-0 opacity-100;
+  }
+
 }

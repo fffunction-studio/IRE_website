@@ -120,8 +120,17 @@ class IreneStracuzzi extends Timber\Site
         $args = array(
           'post_type' => 'product'
         );
+
         $products = Timber::get_posts($args);
         $context['products'] = $products;
+
+        $args = array(
+          'post_type' => 'project'
+        );
+
+        $projects = Timber::get_posts($args);
+
+        $context['project'] = $projects;
 
         return $context;
     }
@@ -224,6 +233,8 @@ class IreneStracuzzi extends Timber\Site
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addFilter(new Twig_SimpleFilter('no_br_mobile', array($this, 'no_br_mobile')));
         $twig->addFilter(new Twig_SimpleFilter('currency', array($this, 'currency')));
+        $twig->addFilter(new Twig_SimpleFilter('js_rot13_encode', array($this, 'js_rot13_encode')));
+        $twig->addFilter(new Twig_SimpleFilter('get_next_post_link', array($this, 'get_next_post_link')));
 
         return $twig;
     }
@@ -260,6 +271,45 @@ class IreneStracuzzi extends Timber\Site
         }
         
         return $number;
+    }
+
+    public function js_rot13_encode($inputString) {
+      $rotated = str_replace('"','\"',str_rot13($inputString));
+      return <<<EOF
+         <script type="text/javascript">
+        /*<![CDATA[*/
+        document.write("$rotated".replace(/[a-zA-Z]/g, function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
+        /*]]>*/
+        </script>
+     
+    EOF;
+    // N.B Make sure there are no whitespace or extra characters following the semicolon above!
+    }
+
+    public function get_next_post_link($post) {
+      $id = $post->id;
+      
+      $args = array(
+        'post_type' => 'project'
+      );
+
+      $projects = Timber::get_posts($args);
+      $num = sizeof($projects);
+      $current_index = 0;
+      
+      for ($i=0; $i < $num; $i++) { 
+        if ($projects[$i]->id == $id) {
+          $current_index = $i;
+        }
+      }
+
+      $next_index = $current_index + 1;
+      
+      if ($next_index > $num - 1) {
+        $next_index = 0;
+      }
+
+      return $projects[$next_index]->link;
     }
 }
 new IreneStracuzzi();

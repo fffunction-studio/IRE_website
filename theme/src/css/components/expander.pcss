@@ -5,6 +5,16 @@
   &.active {
     @apply h-auto;
   }
+
+  .read-more {
+    @apply mt-40 opacity-0;
+    transition: $long ease;
+      padding-top: 33vh;
+
+    &.move-in {
+      @apply mt-0 opacity-100;
+    }
+  }
 }
 
 .expander-activator {
@@ -15,6 +25,10 @@
   &.active,
   &.active .expander-button {
     font-style: italic;
+
+    &.hide-on-active {
+      @apply hidden;
+    }
   }
 
   &.active .expander-arrow {

@@ -1,9 +1,11 @@
 /* fade and slide transition active states (same for leave and enter) */
 .barba-fade-leave-active,
 .barba-fade-enter-active,
-.barba-slide-leave-active,
-.barba-slide-enter-active {
-  transition: $medium easeInOutCubic;
+.barba-left-leave-active,
+.barba-left-enter-active,
+.barba-right-leave-active,
+.barba-right-enter-active {
+  transition: $medium ease;
 }
 
 /* fade transition states */
@@ -18,41 +20,38 @@
 }
 
 /* slide transition states */
-.barba-slide-leave {
-  transform: translateY(0);
+.barba-right-leave {
+  transform: translateX(0);
   opacity: 1;
 
 }
-.barba-slide-enter-to {
-  transform: translateY(0);
+.barba-right-enter-to {
+  transform: translateX(0);
   opacity: 1;
 }
-
-
-.barba-slide-leave-to {
-  transform: translateY(-100vh);
-  opacity: 0;
-}
-.barba-slide-enter {
-  transform: translateY(100vh);
+.barba-right-leave-to {
   opacity: 0;
 }
 
-
-/* .barba-wipe {
-  @apply fixed w-full h-screen inset-x-0 bg-white z-40;
-  top: 100vh;
-  transition: top $medium easeInOutCirc;
+.barba-right-enter {
+  transform: translateX(33vw);
+  opacity: 0;
 }
 
-.barba-leave {
-  .barba-wipe {
-    top: 0;
-  }
+.barba-left-leave {
+  transform: translateX(0);
+  opacity: 1;
+
+}
+.barba-left-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+.barba-left-leave-to {
+  opacity: 0;
+}
+.barba-left-enter {
+  transform: translateX(-33vw);
+  opacity: 0;
 }
 
-.barba-enter {
-  .barba-wipe {
-    top: 100vh;
-  }
-} */

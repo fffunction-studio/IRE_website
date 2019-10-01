@@ -1,9 +1,8 @@
-h1, h2, h3, p {
+html, body {
   @apply leading-tight;
 }
 
 .description p {
-  @apply text-xl;
   max-width: 40em;
   
   &:not(:first-child) {
@@ -14,11 +13,4 @@ h1, h2, h3, p {
 ul {
   @apply my-4;
   margin-left: 2rem;
-}
-
-@screen lg {
-  h1, h2, h3, p {
-  @apply leading-normal;
-}
-
 }

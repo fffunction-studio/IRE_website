@@ -11,6 +11,95 @@ class BarbaManager extends CoreModule {
       barba.init({
         transitions: [
           {
+            name: 'barba-right',
+            to: {
+              custom: ({current, next, trigger}) => {
+                return next.namespace == "project" || next.namespace == "cart"
+              },
+            },
+            
+            beforeLeave() {
+              document.body.classList.remove('barba-enter')
+              document.body.classList.add('barba-leave')
+            },
+
+            beforeEnter() {
+              window.scrollTo(0, 0)
+              document.body.classList.add('barba-enter')
+              document.body.classList.remove('barba-leave')
+
+              let main = document.querySelector('.main')
+              let scripts = Array.from(main.querySelectorAll('script'))
+
+              scripts.forEach((script) => {
+                axios
+                  .get(script.getAttribute('src'))
+                  .then(function(response) {
+                    eval(response.data)
+                  })
+                  .catch(function(error) {
+                    console.log(error)
+                  })
+              })
+
+              eventBus.$emit('barba-before-enter')
+
+            },
+
+            afterEnter() {
+              document.body.classList.remove('barba-enter')
+              document.body.classList.remove('barba-leave')
+
+              eventBus.$emit('barba-after-enter')
+            }
+          },
+          {
+            name: 'barba-left',
+            to: {
+              // custom: ({current, next, trigger}) => {
+              //   return next.namespace == "work" || next.namespace == "shop"
+              // },
+              custom: ({current, next, trigger}) => {
+                return (current.namespace == "project" && next.namespace == "work") || (current.namespace == "cart" && next.namespace == "shop")
+              },
+            },
+            
+            beforeLeave() {
+              document.body.classList.remove('barba-enter')
+              document.body.classList.add('barba-leave')
+            },
+
+            beforeEnter() {
+              window.scrollTo(0, 0)
+              document.body.classList.add('barba-enter')
+              document.body.classList.remove('barba-leave')
+
+              let main = document.querySelector('.main')
+              let scripts = Array.from(main.querySelectorAll('script'))
+
+              scripts.forEach((script) => {
+                axios
+                  .get(script.getAttribute('src'))
+                  .then(function(response) {
+                    eval(response.data)
+                  })
+                  .catch(function(error) {
+                    console.log(error)
+                  })
+              })
+
+              eventBus.$emit('barba-before-enter')
+
+            },
+
+            afterEnter() {
+              document.body.classList.remove('barba-enter')
+              document.body.classList.remove('barba-leave')
+
+              eventBus.$emit('barba-after-enter')
+            }
+          },
+          {
             name: 'barba-fade',
 
             beforeLeave() {

@@ -11,6 +11,7 @@ class SwiperManager extends CoreModule {
       let container = slider.querySelector('.swiper-container')
       let counter = slider.querySelector('.slider-counter')
       let next = slider.querySelector('.slider-next')
+      let previous = slider.querySelector('.slider-previous')
       
       let autoplay = container.getAttribute('data-autoplay') == 'true' ? { delay: 5000 } : false
 
@@ -36,15 +37,18 @@ class SwiperManager extends CoreModule {
       instance.on('slideChange', () => {
         counter.querySelector('.slider-index').innerHTML = instance.realIndex + 1
       })
-
-      counter.querySelector('.slider-total').innerHTML = instance.slides.length - 2
       
+      if (previous) {
+        previous.addEventListener('click', this.previous)
+        previous.instance = instance
+      }
+
       if (next) {
-        next.addEventListener('click', this.onClick)
+        next.addEventListener('click', this.next)
         next.instance = instance
       }
 
-      container.addEventListener('click', this.onClick)
+      container.addEventListener('click', this.next)
       container.instance = instance 
 
       slider.next = next
@@ -67,7 +71,11 @@ class SwiperManager extends CoreModule {
     super.destroy()
   }
 
-  onClick(event) {    
+  previous(event) {    
+    event.currentTarget.instance.slidePrev()
+  }
+
+  next(event) {    
     event.currentTarget.instance.slideNext()
   }
 }

@@ -65,9 +65,9 @@
       </div>
     </section> #}
 
-    <section class="section slider">
+    <section class="section {% if loop.index0 != 0 %}mover{% endif %} slider">
       <div class="container">
-        <div class="row justify-center lg:hidden">
+        <div class="row justify-center lg:hidden text-lg md:text-xl">
           <div class="col w-full flex flex-col items-center">
             <h2 class="italic">{{ item.title }}</h2>
             <p class="text-center">
@@ -90,12 +90,12 @@
           slides: item.meta('slider')
         } %}
 
-        <div class="row justify-center mt-4 lg:text-xl">
+        <div class="row justify-center mt-2 lg:text-xl xl:text-2xl">
           <div class="col w-full text-center lg:w-2/12 lg:text-left">
             <div class="slider-counter">
               <span class="slider-index"></span>
               /
-              <span class="slider-total"></span>
+              <span class="slider-total">{{ item.meta('slider')|length }}</span>
             </div>
           </div>
           <div class="col w-4/12 hidden lg:flex flex-col items-center">
@@ -115,9 +115,9 @@
           </div>
         </div>
 
-        <div class="row justify-center mt-4 lg:mt-12 mb-12 lg:mb-24">
+        <div class="row justify-center mt-4 lg:mt-12 mb-12 lg:mb-32">
           <div class="col w-full lg:w-6/12">
-            <p>
+            <p class="text-sm md:text-base xl:text-xl leading-normal xl:leading-tight">
               {{ item.meta('description') }}
             </p>
           </div>
@@ -135,14 +135,14 @@
 
         <div class="col w-full">
           <div class="expander-activator border-t border-black flex justify-between" data-expander-once="false" data-expander-scroll="false" data-expander-target="terms-conditions">
-            <button class="expander-button my-2 lg:text-xl">Terms &amp; Conditions</button>
+            <button class="expander-button my-2 text-lg md:text-xl xl:text-2xl">Terms &amp; Conditions</button>
             <button class="expander-button my-2">
               <img class="expander-arrow" src="{{ theme.link }}/images/arrow-down.svg" alt="">
             </button>
           </div>
           <div id="terms-conditions" class="expander">
             <div class="expander-content">
-              <p>
+              <p class="text-lg md:text-xl xl:text-2xl">
                 {{ post.meta('terms_conditions') }}
               </p>
             </div>
@@ -156,4 +156,10 @@
 
   {% include "layout/footer.html.twig" %}
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+  console.log('loaded shop');
+</script>
 {% endblock %}

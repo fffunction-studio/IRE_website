@@ -1,0 +1,17 @@
+.project {
+  .project-title {
+    @apply block;
+  }
+  .project-link {
+    @apply hidden;
+  }
+
+  &:hover {
+    .project-title {
+      @apply hidden;
+    }
+    .project-link {
+      @apply block;
+    }
+  }
+}

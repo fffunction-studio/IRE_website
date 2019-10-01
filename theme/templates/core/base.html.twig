@@ -29,7 +29,12 @@
     {% endblock %}
 
     <div class="main-wrapper z-10" data-barba="wrapper">
-      <main class="main {{ main_class|join(' ') }}" data-barba="container" data-barba-namespace="{{ post.post_name }}">
+      {% set namespace = post.post_name %}
+      {% if post.post_type == 'project' %}     
+        {% set namespace = 'project' %}
+      {% endif %}
+      
+      <main class="main {{ main_class|join(' ') }}" data-barba="container" data-barba-namespace="{{ namespace }}">
         {% block main %}{% endblock %}
 
         {% block scripts %}{% endblock %}

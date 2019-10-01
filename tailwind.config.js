@@ -3,9 +3,20 @@ module.exports = {
     fontFamily: {
       serif: ['Life', 'serif']
     },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1440px'
+    },
+    lineHeight: {
+      none: '1',
+      tight: '1.15',
+      normal: '1.2'
+    },
     fontSize: {
       'xs': '.75rem',
-      'sm': '.875rem',
+      'sm': '.9375rem',
       'base': '1rem',
       'lg': '1.125rem',
       'xl': '1.25rem',
@@ -17,8 +28,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        black: '#0c0c0c',
-        white: '#f9f9f9',
+        black: '#000000',
+        white: '#ffffff',
         blue: '#004fff'
       },
       spacing: {

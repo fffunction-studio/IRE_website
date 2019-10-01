@@ -4,14 +4,14 @@
     <section v-if="isEmpty" class="section header-offset-extra">
       <div class="container">
         <div class="row">
-          <div class="col mx-auto w-9/12 lg:w-10/12 text-lg lg:text-xl">
+          <div class="col mx-auto w-9/12 lg:w-10/12 text-lg md:text-xl xl:text-2xl">
             <p>Mhm. You have no items in your shopping cart…</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section v-if="!isEmpty" class="relative min-h-screen header-offset-extra pb-40 text-lg lg:text-xl">
+    <section v-if="!isEmpty" class="relative min-h-screen header-offset-extra pb-40 text-lg lg:text-xl xl:text-2xl">
       <div class="container">
         <div v-for="(item, index) in items" class="product mb-12" v-bind:key="index">
           <div class="row">

@@ -1,2 +1,2 @@
-<div>{{ contact_widget.email }}</div>
-              <div>{{ contact_widget.phone }}</div>
+<div>{{ '<a class="underline-in" href="mailto:' ~ contact_widget.email ~ '">' ~ contact_widget.email ~ '</a>'|js_rot13_encode }}</div>
+<div><a class="underline-in" href="tel:{{ contact_widget.phone }}">{{ contact_widget.phone }}</a></div>
