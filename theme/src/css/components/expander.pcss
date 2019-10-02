@@ -1,6 +1,6 @@
 .expander {
   @apply overflow-hidden h-0;
-  transition: $short ease;
+  /* transition: $long $ease-in-out-circ; */
 
   &.active {
     @apply h-auto;
@@ -8,7 +8,7 @@
 
   .read-more {
     @apply mt-40 opacity-0;
-    transition: $long ease;
+    transition: $long $ease-in-out-circ;
       padding-top: 33vh;
 
     &.move-in {
@@ -19,7 +19,7 @@
 
 .expander-activator {
   .expander-arrow {
-    transition: $short ease;
+    transition: $short $ease-in-out-circ;
   }
 
   &.active,

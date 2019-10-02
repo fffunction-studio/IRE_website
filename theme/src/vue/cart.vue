@@ -1,5 +1,10 @@
 <template>
   <div id="cart-app">
+    <div class="cart-loader fixed inset-0 bg-white-50 z-10">
+      <div class="flex w-full h-full items-center justify-center">
+        <div class="italic text-lg md:text-xl xl:text-2xl underline-loop">Loading</div>
+      </div>
+    </div>
 
     <section v-if="isEmpty" class="section header-offset-extra">
       <div class="container">
@@ -11,11 +16,21 @@
       </div>
     </section>
 
-    <section v-if="!isEmpty" class="relative min-h-screen header-offset-extra pb-40 text-lg lg:text-xl xl:text-2xl">
+    <section
+      v-if="!isEmpty"
+      class="relative min-h-screen header-offset-extra pb-40 text-lg lg:text-xl xl:text-2xl"
+    >
       <div class="container">
         <div v-for="(item, index) in items" class="product mb-12" v-bind:key="index">
           <div class="row">
-            <div class="col ml-1/12 w-1/12 lg:w-1/24">{{ item.amount }}</div>
+            <div class="col ml-1/12 w-1/12 lg:w-1/24">
+              <input
+                class="w-full"
+                type="number"
+                v-model="item.amount"
+                @change="updateOriginalAmount(index)"
+              />
+            </div>
             <div class="col w-2/12 lg:w-1/24 flex justify-center items-center">
               <div class="pb-1">
                 <svg
@@ -69,18 +84,19 @@
           <div class="row">
             <div class="col ml-1/12 w-3/12 lg:w-1/12">Subtotal</div>
             <div class="col w-3/12">{{ totalCost }}</div>
-            <div class="col w-4/12 lg:w-8/12 text-right">
+            <div class="col w-4/12 lg:w-6/12 text-right">
               <div id="checkout">{{ appendChild('checkout', checkoutForm) }}</div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
 <script>
+import anime from "animejs";
+
 export default {
   data() {
     return {
@@ -124,10 +140,35 @@ export default {
       }
     },
 
+    hideLoader() {
+      let loader = document.querySelector(".cart-loader")
+      loader.classList.add('pointer-events-none')
+      anime({
+        targets: loader,
+        opacity: 0,
+        duration: 400,
+        easing: "easeInOutCirc"
+      });
+    },
+
+    showLoader() {
+      let loader = document.querySelector(".cart-loader")
+      loader.classList.remove('pointer-events-none')
+      anime({
+        targets: loader,
+        opacity: 1,
+        duration: 400,
+        easing: "easeInOutCirc"
+      });
+    },
+
     getItemFromElement(element) {
       let name = element.querySelector(
         ".wspsc_cart_item_name_td .wp_cart_item_name"
       ).innerText;
+      let amountInput = element.querySelector(
+        ".wspsc_cart_qty_td .wspsc_cart_item_qty"
+      );
       let amount = element.querySelector(
         ".wspsc_cart_qty_td .wspsc_cart_item_qty"
       ).value;
@@ -144,7 +185,13 @@ export default {
       input.classList.add("button");
       removeForm.appendChild(input);
 
-      return { name: name, amount: amount, cost: cost, removeForm: removeForm };
+      return {
+        name: name,
+        amountInput: amountInput,
+        amount: amount,
+        cost: cost,
+        removeForm: removeForm
+      };
     },
 
     appendChild(id, element) {
@@ -154,10 +201,23 @@ export default {
           parent.appendChild(element);
         }
       });
+    },
+
+    updateOriginalAmount(index) {
+      this.showLoader();
+
+      if (!Number.parseInt(this.items[index].amount) > 0) {
+        this.items[index].amount = 0;
+      }
+
+      this.items[index].amountInput.value = this.items[index].amount;
+
+      document.pcquantity.submit()
     }
   },
   mounted() {
     this.readCart();
+    this.hideLoader();
   }
 };
 </script>

@@ -24,7 +24,7 @@
     span {
       @apply bg-black w-full self-end;
       height: 1px;
-      transition: $short ease-out;
+      transition: $short $ease-in-out-circ;
     }
 
     @mixin hover-child span:first-child, margin-top, 4px;
@@ -32,7 +32,7 @@
   }
   &.animating {
     .nav-menu {
-      transition: top $short ease-out;
+      transition: top $short $ease-in-out-circ;
     }
   }
   &.active {

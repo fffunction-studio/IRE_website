@@ -3,15 +3,10 @@
 {% block main %}
 
   <div class="relative min-h-screen w-full">
-    <section class="section pointer-events-none fixed w-full header-offset z-20">
-      <div class="container">
-        <div class="row">
-          <div class="col w-full md:w-6/12 mx-auto text-center text-lg md:text-xl xl:text-2xl">
-            {{ post.meta('header')|no_br_mobile }}
-          </div>
-        </div>
-      </div>
-    </section>
+  
+      {% include "components/payoff.html.twig" with {
+        text: post.meta('header')
+      } %}
 
     <div class="image-swapper-wrapper absolute inset-0">
       <div id="swapper-0" class="image-swapper absolute inset-0 bg-gray-200"></div>

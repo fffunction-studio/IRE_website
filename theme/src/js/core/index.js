@@ -69,7 +69,7 @@ class Core {
     this.scenes.push(
       new CoreScrollScene(
         () => {
-          return 20
+          return 8
         },
         (event) => {
           eventBus.$emit('scrolled-from-top')

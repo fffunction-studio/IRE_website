@@ -281,9 +281,9 @@ class IreneStracuzzi extends Timber\Site
         document.write("$rotated".replace(/[a-zA-Z]/g, function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
         /*]]>*/
         </script>
-     
-    EOF;
-    // N.B Make sure there are no whitespace or extra characters following the semicolon above!
+
+EOF;
+// N.B Make sure there are no whitespace or extra characters following the semicolon above!
     }
 
     public function get_next_post_link($post) {
@@ -312,4 +312,5 @@ class IreneStracuzzi extends Timber\Site
       return $projects[$next_index]->link;
     }
 }
+
 new IreneStracuzzi();

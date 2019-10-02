@@ -30,6 +30,7 @@ module.exports = {
       colors: {
         black: '#000000',
         white: '#ffffff',
+        'white-50': '#ffffff80',
         blue: '#004fff'
       },
       spacing: {

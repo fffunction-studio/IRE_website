@@ -30,7 +30,7 @@ a:visited {
     @apply absolute left-0 w-full h-full border-b border-black;
     bottom: 0.1em;
     content: '';
-    transition: transform $short ease-in-out;
+    transition: transform $short $ease-in-out-circ;
     transform: scaleX(0);
     transform-origin: left;
   }
@@ -42,10 +42,30 @@ a:visited {
 
 .mover {
   @apply mt-8 opacity-0;
-  transition: $long ease;
+  transition: $long $ease-in-out-circ;
 
   &.move-in {
     @apply mt-0 opacity-100;
   }
 
+}
+
+.underline-loop {
+  @apply relative;
+  &::after {
+    @apply absolute left-0 w-full h-full border-b border-black;
+    content: '';
+    transition: transform $short $ease-in-out-circ;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: border-loop $long linear infinite;
+  }
+}
+
+@keyframes border-loop {
+  0% { transform-origin: left }
+  1% { transform: scaleX(0); transform-origin: left }
+  50% { transform: scaleX(1); transform-origin: left }
+  51% { transform-origin: right }
+  99% { transform: scaleX(0); transform-origin: right }
 }

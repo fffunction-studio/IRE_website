@@ -24,7 +24,7 @@ class ExpanderManager extends CoreModule {
     event.preventDefault()
 
     let target = event.currentTarget.getAttribute('data-expander-target')
-    let duration = 400
+    let duration = 800
 
     if (event.currentTarget.getAttribute('data-expander-instant') == 'true') {
       duration = 1
@@ -52,14 +52,14 @@ class ExpanderManager extends CoreModule {
             targets: targetElement,
             height: [0, content.offsetHeight],
             duration: duration,
-            easing: 'easeInQuad',
+            easing: 'easeOutCirc',
           })
         } else {
           anime({
             targets: targetElement,
             height: [content.offsetHeight, 0],
             duration: duration,
-            easing: 'easeInQuad'
+            easing: 'easeOutCirc'
           })
         }
       }
