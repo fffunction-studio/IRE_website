@@ -2,17 +2,19 @@
 
 {% block main %}
 
+  <div class="payoff-placeholder">
   {% include "components/payoff.html.twig" with {
     text : post.meta("header")
   } %}
+  </div>
 
-  <div class="header-offset-extra-spacer hidden lg:block"></div>
+  <div class="header-offset-extra-spacer"></div>
 
   {% for item in post.meta("work_components") %}
 
     {% if item.acf_fc_layout == "big_landscape_small_portrait" %}
 
-      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-landscape-small-portrait text-lg md:text-xl xl:text-2xl">
+      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-landscape-small-portrait text-lg md:text-xl xl:text-2xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
             <div class="project col mb-10 w-full lg:w-7/12">
@@ -53,7 +55,7 @@
 
     {% elseif item.acf_fc_layout == "big_portrait_small_landscape" %}
 
-      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-small-landscape text-lg lg:text-xl">
+      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-small-landscape text-lg lg:text-xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
             <div class="project col mb-10 w-8/12 lg:w-5/12">
@@ -94,7 +96,7 @@
 
     {% elseif item.acf_fc_layout == "big_portrait_two_small_portraits" %}
 
-      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-two-small-portraits text-lg lg:text-xl">
+      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-two-small-portraits text-lg lg:text-xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
             <div class="project col mb-10 w-8/12 lg:w-5/12">

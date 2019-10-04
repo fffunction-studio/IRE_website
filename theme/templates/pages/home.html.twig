@@ -2,11 +2,13 @@
 
 {% block main %}
 
+  <div class="payoff-placeholder">
+    {% include "components/payoff.html.twig" with {
+      text : post.meta("header")
+    } %}
+  </div>
+
   <div class="relative min-h-screen w-full">
-  
-      {% include "components/payoff.html.twig" with {
-        text: post.meta('header')
-      } %}
 
     <div class="image-swapper-wrapper absolute inset-0">
       <div id="swapper-0" class="image-swapper absolute inset-0 bg-gray-200"></div>
@@ -28,5 +30,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ theme.link }}/js/landing.js"></script>
+  <script src="{{ theme.link }}/js/landing.js"></script>
 {% endblock %}

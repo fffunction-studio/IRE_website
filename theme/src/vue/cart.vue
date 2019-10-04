@@ -212,7 +212,8 @@ export default {
 
       this.items[index].amountInput.value = this.items[index].amount;
 
-      document.pcquantity.submit()
+      let form = document.querySelector('form')
+      form.submit()
     }
   },
   mounted() {

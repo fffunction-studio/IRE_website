@@ -28,6 +28,10 @@
       {% include "layout/header.html.twig" %}
     {% endblock %}
 
+    {% block payoff %}
+      <div class="payoff-wrapper pointer-events-none fixed w-full header-offset z-40"></div>
+    {% endblock %}
+
     <div class="main-wrapper z-10" data-barba="wrapper">
       {% set namespace = post.post_name %}
       {% if post.post_type == 'project' %}     

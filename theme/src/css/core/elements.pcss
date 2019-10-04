@@ -26,8 +26,9 @@ a:visited {
 }
 
 .underline-in {
+  position: relative;
   &::after {
-    @apply absolute left-0 w-full h-full border-b border-black;
+    @apply absolute left-0 w-full h-full border-b border-black cursor-pointer;
     bottom: 0.1em;
     content: '';
     transition: transform $short $ease-in-out-circ;

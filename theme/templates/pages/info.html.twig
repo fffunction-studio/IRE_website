@@ -4,9 +4,11 @@
 
 {% block main %}
 
-  {% include "components/payoff.html.twig" with {
-    text: post.meta('header')
-  } %}
+  <div class="payoff-placeholder">
+    {% include "components/payoff.html.twig" with {
+      text : post.meta("header")
+    } %}
+  </div>
 
   <div class="header-offset-extra-spacer"></div>
 
@@ -41,16 +43,19 @@
             Contact
           </p>
           {% include "components/contact.html.twig" %}
-          <div><a class="underline-static" href="{{ contact_widget.instagram }}">Instagram</a>, <a class="underline-static" href="{{ contact_widget.linkedIn }}">LinkedIn</a></div>
+          <div>
+            <a class="underline-static" href="{{ contact_widget.instagram }}">Instagram</a>,
+            <a class="underline-static" href="{{ contact_widget.linkedIn }}">LinkedIn</a>
+          </div>
           <p class="mt-8 mb-4 md:mt-10 md:mb-5">
             Services
           </p>
           <div>
             {% for item in post.meta("services")%}
-            <div>
-              {{ item.service }}
-            </div>
-          {% endfor %}
+              <div>
+                {{ item.service }}
+              </div>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -64,9 +69,15 @@
 
         <div class="flex justify-center">
           <div class="text-center text-lg md:text-xl xl:text-2xl">
-            <div>Website coded by <a class="underline-in italic" href="https://fffunction.studio" target="_blank">fffunction.studio</a></div>
-            <div>3D visuals by <a class="underline-in italic" href="https://postnew.xyz" target="_blank">Post New</a></div>
-            <div>Copyright {{ "now"|date("Y") }} &copy; Irene Stracuzzi</div>
+            <div>Website coded by
+              <a class="underline-in italic" href="https://fffunction.studio" target="_blank">fffunction.studio</a>
+            </div>
+            <div>3D visuals by
+              <a class="underline-in italic" href="https://postnew.xyz" target="_blank">Post New</a>
+            </div>
+            <div>Copyright
+              {{ "now"|date("Y") }}
+              &copy; Irene Stracuzzi</div>
           </div>
         </div>
 

@@ -3,9 +3,15 @@ import { CoreEvent } from '../core/core-event';
 
 class Payoff extends CoreModule {
   init() {
-    this.element = document.querySelector('.payoff')
+    this.wrapper = document.querySelector('.payoff-wrapper')
+    this.placeholder = document.querySelector('.payoff-placeholder')
 
-    if (this.element) {
+    if (this.placeholder) {
+      this.wrapper.classList.remove('opacity-0')
+      this.element = this.placeholder.querySelector('.payoff')
+      this.wrapper.innerHTML = ''
+      this.wrapper.appendChild(this.element)
+
       this.events.push(
         new CoreEvent('scrolled-from-top', () => {
           this.fadeOut()
@@ -18,7 +24,10 @@ class Payoff extends CoreModule {
         })
       )
     } else {
-      return { id: this.id, status: false, message: 'no .header-main element' }
+      this.wrapper.classList.add('opacity-0')
+      setTimeout(()=> {
+        this.wrapper.innerHTML = ''
+      }, 800)
     }
 
 
