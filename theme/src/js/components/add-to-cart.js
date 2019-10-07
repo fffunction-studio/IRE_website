@@ -5,8 +5,15 @@ class AddToCart extends CoreModule {
     let elements = document.querySelectorAll('.wspsc_add_cart_submit')
 
     elements.forEach(element => {
+      let parent = element.parentElement
+      let placeholder = document.createElement('div')
+
+      placeholder.classList.add('underline-placeholder')
+      placeholder.classList.add('underline-out')
+      placeholder.appendChild(element)
+      parent.appendChild(placeholder)
+
       element.addEventListener('click', this.onClick)
-      console.log(element.parentElement)
     })
 
     return super.init()
@@ -14,7 +21,7 @@ class AddToCart extends CoreModule {
 
   onClick(event) {
     event.preventDefault();
-    console.log(event)
+
     let form = event.currentTarget.parentElement
     event.currentTarget.setAttribute('value', 'added!')
     setTimeout(function() {

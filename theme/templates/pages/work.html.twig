@@ -3,9 +3,9 @@
 {% block main %}
 
   <div class="payoff-placeholder">
-  {% include "components/payoff.html.twig" with {
-    text : post.meta("header")
-  } %}
+    {% include "components/payoff.html.twig" with {
+      text : post.meta("header")
+    } %}
   </div>
 
   <div class="header-offset-extra-spacer"></div>
@@ -17,37 +17,44 @@
       <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-landscape-small-portrait text-lg md:text-xl xl:text-2xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
-            <div class="project col mb-10 w-full lg:w-7/12">
-
+            <div class="col mb-10 w-full lg:w-7/12">
               <a href="{{ item.big_landscape_project.link }}">
-                {% include "components/image.html.twig" with {
-                  image : item.big_landscape_project.thumbnail,
-                  image_class: ["regular"],
-                  size: "landscape-50vw"
-                } %}
-
-                <div class="flex justify-center mt-2">
-                  <p class="italic project-title">{{ item.big_landscape_project.title }}</p>
-                  <p class="project-link">View Project</p>
+                <div class="project">
+                  <div class="project-thumbnail">
+                    {% include "components/hover-image.html.twig" with {
+                      image : item.big_landscape_project.meta("project_thumbnail").image,
+                      hover_image : item.big_landscape_project.meta("project_thumbnail").hover_image,
+                      figure_class: ["landscape"],
+                      size: "landscape-50vw"
+                    } %}
+                  </div>
+                  <div class="flex flex-col items-center mt-2">
+                    <p class="italic project-title">{{ item.big_landscape_project.title }}</p>
+                    <p class="project-link">View Project</p>
+                  </div>
                 </div>
               </a>
-
             </div>
-            <div class="project col mb-10 w-8/12 lg:w-3/12">
 
+            <div class="col mb-10 w-8/12 lg:w-3/12">
               <a href="{{ item.small_portrait_project.link }}">
-                {% include "components/image.html.twig" with {
-                  image : item.small_portrait_project.thumbnail,
-                  image_class: ["regular"],
-                  size: "portrait-25vw"
-                } %}
+                <div class="project">
+                  <div class="project-thumbnail">
+                    {% include "components/hover-image.html.twig" with {
+                      image : item.small_portrait_project.meta("project_thumbnail").image,
+                      hover_image: item.small_portrait_project.meta("project_thumbnail").hover_image,
+                      figure_class: ["portrait"],
+                      size: "portrait-25vw"
+                    } %}
+                  </div>
 
-                <div class="flex justify-center mt-2">
-                  <p class="italic project-title">{{ item.small_portrait_project.title }}</p>
-                  <p class="project-link">View Project</p>
+                  <div class="flex flex-col items-center mt-2">
+                    <p class="italic project-title">{{ item.small_portrait_project.title }}</p>
+                    <p class="project-link">View Project</p>
+                  </div>
+
                 </div>
               </a>
-
             </div>
           </div>
         </div>
@@ -58,37 +65,46 @@
       <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-small-landscape text-lg lg:text-xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
-            <div class="project col mb-10 w-8/12 lg:w-5/12">
-
+            <div class="col mb-10 w-8/12 lg:w-5/12">
               <a href="{{ item.big_portrait_project.link }}">
-                {% include "components/image.html.twig" with {
-                  image : item.big_portrait_project.thumbnail,
-                  image_class: ["regular"],
-                  size: "portrait-50vw"
-                } %}
+                <div class="project">
 
-                <div class="flex justify-center mt-2">
-                  <p class="italic project-title">{{ item.big_portrait_project.title }}</p>
-                  <p class="project-link">View Project</p>
+                  <div class="project-thumbnail">
+                    {% include "components/hover-image.html.twig" with {
+                      image : item.big_portrait_project.meta("project_thumbnail").image,
+                      hover_image : item.big_portrait_project.meta("project_thumbnail").hover_image,
+                      figure_class: ["portrait"],
+                      size: "landscape-50vw"
+                    } %}
+                  </div>
+
+                  <div class="flex flex-col items-center mt-2">
+                    <p class="italic project-title">{{ item.big_portrait_project.title }}</p>
+                    <p class="project-link">View Project</p>
+                  </div>
+
                 </div>
               </a>
-
             </div>
-            <div class="project col mb-10 w-full lg:w-5/12">
-
+            <div class="col mb-10 w-full lg:w-5/12">
               <a href="{{ item.small_landscape_project.link }}">
-                {% include "components/image.html.twig" with {
-                  image : item.small_landscape_project.thumbnail,
-                  image_class: ["regular"],
-                  size: "landscape-50vw"
-                } %}
+                <div class="project">
+                  <div class="project-thumbnail">
+                    {% include "components/hover-image.html.twig" with {
+                      image : item.small_landscape_project.meta("project_thumbnail").image,
+                      hover_image : item.small_landscape_project.meta("project_thumbnail").hover_image,
+                      figure_class: ["landscape"],
+                      size: "landscape-50vw"
+                    } %}
+                  </div>
 
-                <div class="flex justify-center mt-2">
-                  <p class="italic project-title">{{ item.small_landscape_project.title }}</p>
-                  <p class="project-link">View Project</p>
+                  <div class="flex flex-col items-center mt-2">
+                    <p class="italic project-title">{{ item.small_landscape_project.title }}</p>
+                    <p class="project-link">View Project</p>
+                  </div>
+
                 </div>
               </a>
-
             </div>
           </div>
         </div>
@@ -99,50 +115,62 @@
       <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-two-small-portraits text-lg lg:text-xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
-            <div class="project col mb-10 w-8/12 lg:w-5/12">
 
+            <div class="col mb-10 w-8/12 lg:w-5/12">
               <a href="{{ item.big_portrait_project.link }}">
-                {% include "components/image.html.twig" with {
-                  image : item.big_portrait_project.thumbnail,
-                  image_class: ["regular"],
-                  size: "portrait-50vw"
-                } %}
-                <div class="flex justify-center mt-2">
-                  <p class="italic project-title">{{ item.big_portrait_project.title }}</p>
-                  <p class="project-link">View Project</p>
+                <div class="project">
+                  <div class="project-thumbnail">
+                    {% include "components/hover-image.html.twig" with {
+                      image : item.big_portrait_project.meta("project_thumbnail").image,
+                      hover_image : item.big_portrait_project.meta("project_thumbnail").hover_image,
+                      figure_class: ["portrait"],
+                      size: "portrait-50vw"
+                    } %}
+                  </div>
+                  <div class="flex flex-col items-center mt-2">
+                    <p class="italic project-title">{{ item.big_portrait_project.title }}</p>
+                    <p class="project-link">View Project</p>
+                  </div>
                 </div>
               </a>
-
             </div>
-            <div class="project col mb-10 w-8/12 lg:w-3/12">
 
+            <div class="col mb-10 w-8/12 lg:w-3/12">
               <a href="{{ item.small_portrait_project_first.link }}">
-                {% include "components/image.html.twig" with {
-                  image : item.small_portrait_project_first.thumbnail,
-                  image_class: ["regular"],
-                  size: "portrait-25vw"
-                } %}
-                <div class="flex justify-center mt-2">
-                  <p class="italic project-title">{{ item.small_portrait_project_first.title }}</p>
-                  <p class="project-link">View Project</p>
+                <div class="project">
+                  <div class="project-thumbnail">
+                    {% include "components/hover-image.html.twig" with {
+                      image : item.small_portrait_project_first.meta("project_thumbnail").image,
+                      hover_image : item.small_portrait_project_first.meta("project_thumbnail").hover_image,
+                      figure_class: ["portrait"],
+                      size: "portrait-25vw"
+                    } %}
+                  </div>
+                  <div class="flex flex-col items-center mt-2">
+                    <p class="italic project-title">{{ item.small_portrait_project_first.title }}</p>
+                    <p class="project-link">View Project</p>
+                  </div>
                 </div>
               </a>
-
             </div>
-            <div class="project col mb-10 w-8/12 lg:w-3/12">
 
+            <div class="project col mb-10 w-8/12 lg:w-3/12">
               <a href="{{ item.small_portrait_project_second.link }}">
-                {% include "components/image.html.twig" with {
-                  image : item.small_portrait_project_second.thumbnail,
-                  image_class: ["regular"],
-                  size: "portrait-25vw"
-                } %}
-                <div class="flex justify-center mt-2">
-                  <p class="italic project-title">{{ item.small_portrait_project_second.title }}</p>
-                  <p class="project-link">View Project</p>
+                <div class="project">
+                  <div class="project-thumbnail">
+                    {% include "components/hover-image.html.twig" with {
+                      image : item.small_portrait_project_second.meta("project_thumbnail").image,
+                      hover_image : item.small_portrait_project_second.meta("project_thumbnail").hover_image,
+                      figure_class: ["portrait"],
+                      size: "portrait-25vw"
+                    } %}
+                  </div>
+                  <div class="flex flex-col items-center mt-2">
+                    <p class="italic project-title">{{ item.small_portrait_project_second.title }}</p>
+                    <p class="project-link">View Project</p>
+                  </div>
                 </div>
               </a>
-
             </div>
           </div>
         </div>

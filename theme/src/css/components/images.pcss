@@ -34,7 +34,32 @@ figure {
     /* padding-top: 66.66667%; */
     padding-top: calc((100% - 22px) * 0.5 * 1.3636364);
   }
+
+  &.hover-figure {
+    .default-image,
+    .hover-image {
+      transition: opacity $short $ease-in-out-circ;
+    }
+    .default-image {
+      @apply opacity-100;
+    }
+
+    .hover-image {
+      @apply opacity-0;
+    }
+
+    &:hover {
+      .default-image {
+        @apply opacity-0;
+      }
+
+      .hover-image {
+        @apply opacity-100;
+      }
+    }
+  }
 }
+
 
 img {
   /* @apply relative block w-auto h-full; */

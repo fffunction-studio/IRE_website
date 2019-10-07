@@ -1,17 +1,12 @@
 .project {
-  .project-title {
-    @apply block;
-  }
   .project-link {
-    @apply hidden;
+    @apply opacity-0;
+    transition: opacity $short $ease-in-out-circ;
   }
 
   &:hover {
-    .project-title {
-      @apply hidden;
-    }
     .project-link {
-      @apply block;
+      @apply opacity-100;
     }
   }
 }
