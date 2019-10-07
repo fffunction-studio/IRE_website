@@ -45,8 +45,6 @@ class ExpanderManager extends CoreModule {
         
         let content = targetElement.querySelector('.expander-content')
 
-        console.log(content.offsetHeight)
-
         if (targetElement.classList.contains('active')) {
           anime({
             targets: targetElement,

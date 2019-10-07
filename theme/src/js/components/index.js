@@ -6,5 +6,6 @@ import { movers } from './movers'
 import { payoff } from './payoff'
 import { addToCart } from './add-to-cart'
 import { fadeAfterScroll } from './fade-after-scroll'
+import { paralaxMovers } from './paralax-movers'
 
-export { images, swiperManager, expanderManager, compactCart, movers, payoff, addToCart, fadeAfterScroll }
+export { images, swiperManager, expanderManager, compactCart, movers, payoff, addToCart, fadeAfterScroll, paralaxMovers }

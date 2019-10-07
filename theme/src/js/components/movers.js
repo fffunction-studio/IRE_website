@@ -5,9 +5,7 @@ class Movers extends CoreModule {
   init() {
     this.scenes = []
     this.movers = document.querySelectorAll('.mover')
-    this.readMores = document.querySelectorAll('.read-more')
-
-    console.log("TCL: Core -> init -> this.movers ", this.movers )
+    this.readMores = document.querySelectorAll('.read-more-mover')
 
     this.movers.forEach(mover => {
       console.log('init mover')
@@ -28,7 +26,6 @@ class Movers extends CoreModule {
     })
 
     this.readMores.forEach(mover => {
-      console.log('init mover')
       this.scenes.push(
         new CoreScrollScene(
           () => {

@@ -95,6 +95,21 @@ a:visited {
 
 }
 
+.read-more-mover {
+  @apply opacity-0;
+  transition: $xlong $ease-out-circ;
+  margin-top: 150px;
+
+  &.move-in {
+    @apply opacity-100;
+    margin-top: 0;
+  }
+}
+
+.paralax-mover {
+  transition: 100ms linear;
+}
+
 .underline-loop {
   @apply relative;
   &::after {
