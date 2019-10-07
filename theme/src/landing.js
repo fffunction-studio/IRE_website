@@ -18,6 +18,17 @@ import { throttle } from 'lodash';
         showSwapper(index)
       }
     }, 100)
+
+    imageSwapper.ontouchmove = throttle((event) => {
+      let index = Math.floor(event.pageX / window.innerWidth * maxImages)
+      if (index != lastIndex) {
+        lastIndex = index
+
+        hideAll()
+        showSwapper(index)
+      }
+      // console.log(event)
+    }, 10)
     
     function hideAll() {
       swappers.forEach(swapper => {
