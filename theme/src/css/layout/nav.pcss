@@ -5,7 +5,7 @@
     @apply fixed w-full h-screen flex flex-col bg-white text-black;
     top: -100vh;
     left: 0;
-    padding: calc(2 * $site-offset) $site-offset;
+    padding: calc(2 * $site-offset) 27px;
     .nav-menu-item {
       @apply ml-0;
     }
@@ -26,13 +26,10 @@
       height: 1px;
       transition: $short $ease-in-out-circ;
     }
-
-    @mixin hover-child span:first-child, margin-top, 4px;
-    @mixin hover-child span:last-child, margin-bottom, 4px;
   }
   &.animating {
     .nav-menu {
-      transition: top $short $ease-in-out-circ;
+      /* transition: top $short $ease-in-out-circ; */
     }
   }
   &.active {
@@ -51,10 +48,10 @@
       span {
         margin: 0 !important;
         &:first-child {
-          transform: translateY(calc($burger-height / 2 - 1px)) rotate(45deg);
+          transform: translateY(calc($burger-height / 2 - 0.5px)) rotate(45deg);
         }
         &:last-child {
-          transform: translateY(calc($burger-height / -2 + 1px)) rotate(-45deg);
+          transform: translateY(calc($burger-height / -2 + 0.5px)) rotate(-45deg);
         }
       }
     }

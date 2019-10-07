@@ -22,7 +22,7 @@ class AddToCart extends CoreModule {
   onClick(event) {
     event.preventDefault();
 
-    let form = event.currentTarget.parentElement
+    let form = event.currentTarget.parentElement.parentElement
     event.currentTarget.setAttribute('value', 'added!')
     setTimeout(function() {
       form.submit()

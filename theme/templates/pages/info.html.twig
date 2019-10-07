@@ -10,62 +10,62 @@
     } %}
   </div>
 
-  <div class="header-offset-extra-spacer"></div>
+  <div class="info-wrapper">
 
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col w-full mr-0 lg:w-5/12 lg:mr-1/12 text-xl md:text-2xl xl:text-3xl">
-          <p class="mb-12 md:mb-16">
-            {{ post.meta('bio') }}
-          </p>
-        </div>
-        <div class="col w-full md:w-6/12 lg:w-3/12 text-lg md:text-xl xl:text-2xl">
-          <p class="mb-4 md:mb-6">
-            Exhibitions
-          </p>
-          {% for item in post.meta("exhibitions")%}
-            <div>
-              {{ item.description }}
-            </div>
-          {% endfor %}
-          <p class="mt-8 mb-4 md:mt-10 md:mb-5">
-            Talks
-          </p>
-          {% for item in post.meta("talks")%}
-            <div>
-              {{ item.description }}
-            </div>
-          {% endfor %}
-        </div>
-        <div class="col w-full md:w-6/12 lg:w-3/12 text-lg md:text-xl xl:text-2xl">
-          <p class="mb-4 md:mb-6">
-            Contact
-          </p>
-          {% include "components/contact.html.twig" %}
-          <div>
-            <a class="underline-out" href="{{ contact_widget.instagram }}">Instagram</a>,
-            <a class="underline-out" href="{{ contact_widget.linkedIn }}">LinkedIn</a>
+    <div class="header-offset-extra-spacer"></div>
+
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col w-full mr-0 lg:w-5/12 lg:mr-1/12 text-mxl md:text-2xl xl:text-3xl">
+            <p class="mb-12 md:mb-16">
+              {{ post.meta('bio') }}
+            </p>
           </div>
-          <p class="mt-8 mb-4 md:mt-10 md:mb-5">
-            Services
-          </p>
-          <div>
-            {% for item in post.meta("services")%}
+          <div class="col w-full md:w-6/12 lg:w-3/12 text-lg md:text-xl xl:text-2xl">
+            <p class="mb-4 md:mb-6">
+              Exhibitions
+            </p>
+            {% for item in post.meta("exhibitions")%}
               <div>
-                {{ item.service }}
+                {{ item.description }}
+              </div>
+            {% endfor %}
+            <p class="mt-8 mb-4 md:mt-10 md:mb-5">
+              Talks
+            </p>
+            {% for item in post.meta("talks")%}
+              <div>
+                {{ item.description }}
               </div>
             {% endfor %}
           </div>
+          <div class="col w-full md:w-6/12 lg:w-3/12 text-lg md:text-xl xl:text-2xl">
+            <p class="mb-4 md:mb-6">
+              Contact
+            </p>
+            {% include "components/contact.html.twig" %}
+            <div>
+              <a class="underline-out" href="{{ contact_widget.instagram }}">Instagram</a>,
+              <a class="underline-out" href="{{ contact_widget.linkedIn }}">LinkedIn</a>
+            </div>
+            <p class="mt-8 mb-4 md:mt-10 md:mb-5">
+              Services
+            </p>
+            <div>
+              {% for item in post.meta("services")%}
+                <div>
+                  {{ item.service }}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="section {{ section_class|join(' ') }}">
-    <div class="container {{ container_class|join(' ') }}">
-
-      {% block footer %}
+    <footer class="footer-info">
+      <div class="container">
 
         <div class="flex justify-center">
           <div class="text-center text-lg md:text-xl xl:text-2xl">
@@ -81,9 +81,9 @@
           </div>
         </div>
 
-      {% endblock %}
+      </div>
+    </footer>
 
-    </div>
-  </footer>
+  </div>
 
 {% endblock %}

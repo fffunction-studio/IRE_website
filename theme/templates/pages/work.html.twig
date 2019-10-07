@@ -14,12 +14,12 @@
 
     {% if item.acf_fc_layout == "big_landscape_small_portrait" %}
 
-      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-landscape-small-portrait text-lg md:text-xl xl:text-2xl  -mb-8 md:mb-0">
+      <section class="section big-landscape-small-portrait text-lg md:text-xl xl:text-2xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
             <div class="col mb-10 w-full lg:w-7/12">
               <a href="{{ item.big_landscape_project.link }}">
-                <div class="project">
+                <div class="project {% if loop.index0 != 0 %}mover{% endif %} ">
                   <div class="project-thumbnail">
                     {% include "components/hover-image.html.twig" with {
                       image : item.big_landscape_project.meta("project_thumbnail").image,
@@ -38,7 +38,7 @@
 
             <div class="col mb-10 w-8/12 lg:w-3/12">
               <a href="{{ item.small_portrait_project.link }}">
-                <div class="project">
+                <div class="project {% if loop.index0 != 0 %}mover{% endif %} ">
                   <div class="project-thumbnail">
                     {% include "components/hover-image.html.twig" with {
                       image : item.small_portrait_project.meta("project_thumbnail").image,
@@ -62,12 +62,12 @@
 
     {% elseif item.acf_fc_layout == "big_portrait_small_landscape" %}
 
-      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-small-landscape text-lg lg:text-xl  -mb-8 md:mb-0">
+      <section class="section big-portrait-small-landscape text-lg lg:text-xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
             <div class="col mb-10 w-8/12 lg:w-5/12">
               <a href="{{ item.big_portrait_project.link }}">
-                <div class="project">
+                <div class="project {% if loop.index0 != 0 %}mover{% endif %} ">
 
                   <div class="project-thumbnail">
                     {% include "components/hover-image.html.twig" with {
@@ -88,7 +88,7 @@
             </div>
             <div class="col mb-10 w-full lg:w-5/12">
               <a href="{{ item.small_landscape_project.link }}">
-                <div class="project">
+                <div class="project {% if loop.index0 != 0 %}mover{% endif %} ">
                   <div class="project-thumbnail">
                     {% include "components/hover-image.html.twig" with {
                       image : item.small_landscape_project.meta("project_thumbnail").image,
@@ -112,13 +112,13 @@
 
     {% elseif item.acf_fc_layout == "big_portrait_two_small_portraits" %}
 
-      <section class="section {% if loop.index0 != 0 %}mover{% endif %} big-portrait-two-small-portraits text-lg lg:text-xl  -mb-8 md:mb-0">
+      <section class="section big-portrait-two-small-portraits text-lg lg:text-xl  -mb-8 md:mb-0">
         <div class="container">
           <div class="row justify-center lg:justify-between{% if item.mirror %} flex-row-reverse{% endif %}">
 
             <div class="col mb-10 w-8/12 lg:w-5/12">
               <a href="{{ item.big_portrait_project.link }}">
-                <div class="project">
+                <div class="project {% if loop.index0 != 0 %}mover{% endif %} ">
                   <div class="project-thumbnail">
                     {% include "components/hover-image.html.twig" with {
                       image : item.big_portrait_project.meta("project_thumbnail").image,
@@ -137,7 +137,7 @@
 
             <div class="col mb-10 w-8/12 lg:w-3/12">
               <a href="{{ item.small_portrait_project_first.link }}">
-                <div class="project">
+                <div class="project {% if loop.index0 != 0 %}mover{% endif %} ">
                   <div class="project-thumbnail">
                     {% include "components/hover-image.html.twig" with {
                       image : item.small_portrait_project_first.meta("project_thumbnail").image,
@@ -156,7 +156,7 @@
 
             <div class="project col mb-10 w-8/12 lg:w-3/12">
               <a href="{{ item.small_portrait_project_second.link }}">
-                <div class="project">
+                <div class="project {% if loop.index0 != 0 %}mover{% endif %} ">
                   <div class="project-thumbnail">
                     {% include "components/hover-image.html.twig" with {
                       image : item.small_portrait_project_second.meta("project_thumbnail").image,

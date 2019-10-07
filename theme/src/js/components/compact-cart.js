@@ -13,8 +13,8 @@ class CompactCart extends CoreModule {
       let parent = element.parentElement
       let wrapper = document.createElement('div')
       
-      wrapper.classList.add('flex','justify-center')
-      element.classList.add('underline-in')
+      wrapper.classList.add('flex','justify-start', 'lg:justify-center')
+      element.classList.add('lg:underline-in')
 
       wrapper.appendChild(element)
       parent.appendChild(wrapper)

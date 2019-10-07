@@ -4,7 +4,7 @@ import 'zenscroll'
 
 import { core } from './js/core'
 import { header, nav, footer, barbaManager } from './js/layout'
-import { images, swiperManager, expanderManager, compactCart, movers, payoff, addToCart } from './js/components'
+import { images, swiperManager, expanderManager, compactCart, movers, payoff, addToCart, fadeAfterScroll } from './js/components'
 
 (function() {
   core.attach(header, { element: document.querySelector('.header-main') })
@@ -19,6 +19,7 @@ import { images, swiperManager, expanderManager, compactCart, movers, payoff, ad
   core.attach(movers, {}, true)
   core.attach(payoff, {}, true)
   core.attach(addToCart, {}, true)
+  core.attach(fadeAfterScroll, {}, true)
 
   core.init()
 })()
