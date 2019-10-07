@@ -3,7 +3,7 @@ import { throttle } from 'lodash';
 (function() {
 
   let imageSwapper = document.querySelector('.image-swapper-wrapper')
-  let maxImages = 9
+  let maxImages = 21
   let lastIndex = 0
 
   if (imageSwapper) {
