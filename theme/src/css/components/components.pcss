@@ -4,8 +4,13 @@ button:focus,
     @apply cursor-pointer outline-none;
 }
 
+input,
+input:focus {
+  @apply outline-none;
+}
+
 .fade-after-scroll {
-  transition: opacity $medium $ease-in-out-circ;
+  transition: opacity $short $ease-in-out-circ;
 
   &.fade-out {
     @apply opacity-0 pointer-events-none;

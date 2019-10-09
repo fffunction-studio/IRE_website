@@ -21,50 +21,6 @@
 
     {% set product = "[wp_cart_button name='" ~ item.title ~ "' price='" ~ item.meta("cost") ~ "']" %}
 
-    {# <section class="section header-offset lg:hidden">
-      <div class="container">
-        <div class="row">
-          {% for slide in item.meta("slider") %}
-
-            {% if slide.acf_fc_layout == "landscape" %}
-
-              <div class="col w-full mb-4">
-                {% include "components/figure.html.twig" with {
-                  figure_class : "landscape",
-                  image_class: '',
-                  image: slide.image,
-                  size: 'landscape-50vw'
-                } %}
-              </div>
-
-            {% elseif slide.acf_fc_layout == "double_portrait" %}
-
-              <div class="col w-full mb-4">
-                {% include "components/figure.html.twig" with {
-                  figure_class : "portrait",
-                  image_class: '',
-                  image: slide.image_first,
-                  size: 'portrait-50vw'
-                } %}
-              </div>
-
-              <div class="col w-full mb-4">
-                {% include "components/figure.html.twig" with {
-                  figure_class : "portrait",
-                  image_class: '',
-                  image: slide.image_second,
-                  size: 'portrait-50vw'
-                } %}
-              </div>
-
-            {% endif %}
-
-          {% endfor %}
-
-        </div>
-      </div>
-    </section> #}
-
     <section class="section {% if loop.index0 != 0 %}mover{% endif %} slider">
       <div class="container">
         <div class="row justify-center lg:hidden text-lg md:text-xl">
@@ -90,7 +46,7 @@
           slides: item.meta('slider')
         } %}
 
-        <div class="row justify-center mt-2 lg:text-xl xl:text-2xl">
+        <div class="row justify-center pt-2 lg:text-xl xl:text-2xl" style="background: white;margin-top: -2px;position: relative;z-index: +1;">
           <div class="col w-full text-center lg:w-2/12 lg:text-left">
             <div class="slider-counter">
               <span class="slider-index"></span>

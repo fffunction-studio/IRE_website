@@ -18,7 +18,7 @@
 
     {% include "core/metadata.html.twig" %}
 
-    {{function('wp_head')}}
+    {{ function('wp_head') }}
 
     {% block head %}{% endblock %}
   </head>
@@ -37,8 +37,13 @@
       {% if post.post_type == 'project' %}     
         {% set namespace = 'project' %}
       {% endif %}
+
+      {% set color = post.meta('text_color') %}
+      {# {% if post.post_type == 'project' %}     
+        {% set namespace = 'project' %}
+      {% endif %} #}
       
-      <main class="main {{ main_class|join(' ') }}" data-barba="container" data-barba-namespace="{{ namespace }}">
+      <main class="main {{ main_class|join(' ') }}" data-barba="container" data-barba-namespace="{{ namespace }}" data-text-color="{{ color }}">
         {% block main %}{% endblock %}
 
         {% block scripts %}{% endblock %}

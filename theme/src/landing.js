@@ -27,7 +27,6 @@ import { throttle } from 'lodash';
         hideAll()
         showSwapper(index)
       }
-      // console.log(event)
     }, 10)
     
     function hideAll() {

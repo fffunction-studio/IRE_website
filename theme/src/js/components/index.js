@@ -7,5 +7,6 @@ import { payoff } from './payoff'
 import { addToCart } from './add-to-cart'
 import { fadeAfterScroll } from './fade-after-scroll'
 import { paralaxMovers } from './paralax-movers'
+import { textColor } from './text-color'
 
-export { images, swiperManager, expanderManager, compactCart, movers, payoff, addToCart, fadeAfterScroll, paralaxMovers }
+export { images, swiperManager, expanderManager, compactCart, movers, payoff, addToCart, fadeAfterScroll, paralaxMovers, textColor }
