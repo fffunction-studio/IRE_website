@@ -21,12 +21,33 @@ class TextColor extends CoreModule {
     if (namespace == 'home') {
       let color = document.querySelector('.main').getAttribute('data-text-color')
       if (color) {
-        console.log('setting home text color', color)
         document.body.style.color = color
+
+        let underlines = document.querySelectorAll('.underline-in')
+        underlines.forEach(underline => {
+          underline.style.borderColor = color
+        })
+
+        let burgerSpans = document.querySelectorAll('.nav-burger > span')
+        burgerSpans.forEach(span => {
+          span.setAttribute('data-bg-color', color)
+          span.style.backgroundColor = color
+        })
       }
     } else {
       console.log('resetting text color')
       document.body.style.color = ''
+
+      let underlines = document.querySelectorAll('.underline-in')
+        underlines.forEach(underline => {
+          underline.style.borderColor = ''
+        })
+
+        let burgerSpans = document.querySelectorAll('.nav-burger > span')
+        burgerSpans.forEach(span => {
+          span.setAttribute('data-bg-color', 'rgb(0,0,0')
+          span.style.backgroundColor = ''
+        })
     }
   }
 }

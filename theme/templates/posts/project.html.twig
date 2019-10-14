@@ -17,7 +17,7 @@
       </div>
     </section>
 
-    <section class="section fixed bottom-0 w-full text-xl z-20 pointer-events-none">
+    <section class="section fixed bottom-0 w-full text-lg md:text-xl xl:text-2xl z-20 pointer-events-none">
       <div class="container">
         <div class="row">
           <div class="col w-1/12 fade-after-scroll">
@@ -38,7 +38,7 @@
       </div>
     </section>
 
-    <section class="section fixed bottom-0 w-full text-xl z-10 pointer-events-none">
+    <section class="section fixed bottom-0 w-full text-lg md:text-xl xl:text-2xl z-10 pointer-events-none">
       <div class="container">
         <div class="row">
           <div class="col ml-9/12 w-3/12 flex justify-end">
@@ -48,19 +48,19 @@
       </div>
     </section>
 
-    <div id="description" class="expander">
+    <div id="description" class="expander text-lg md:text-xl xl:text-2xl">
       <div class="expander-content read-more">
         <section class="section header-offset">
           <div class="container">
             <div class="row">
               <div class="col w-4/12 ml-8/12">
-                <div class="description mb-12 text-xl">
+                <div class="description mb-12">
                   {{ post.meta('description') }}
                 </div>
-                <div class="details ml-8 mb-24">
+                <div class="details ml-8 mb-24 text-base xl:text-xl">
                   {{ post.meta('details') }}
                 </div>
-                <div class="pt-8 text-xl text-right">
+                <div class="pt-8 text-right">
                   <a class="underline-in" href="#">Close</a>
                 </div>
               </div>

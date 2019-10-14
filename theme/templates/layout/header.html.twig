@@ -10,7 +10,13 @@
         </a>
       </div>
       <div class="nav-right flex justify-end w-2/12 md:w-4/12">
-        <div class="nav-menu text-xl lg:text-base z-40 pointer-events-auto">
+        <div class="flex lg:hidden nav-menu text-xl lg:text-base z-40 pointer-events-auto" style="color: rgb(0,0,0)">
+          {% include "components/menu.html.twig" with {
+            "menu" : menu.get_items
+          } %}
+        </div>
+
+        <div class="hidden lg:flex nav-menu text-xl lg:text-base z-40 pointer-events-auto">
           {% include "components/menu.html.twig" with {
             "menu" : menu.get_items
           } %}

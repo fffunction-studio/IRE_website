@@ -1,8 +1,18 @@
 .nav-main {
   @apply relative text-lg;
 
+  a.mobile-only {
+    color: inherit;
+  }
+
+  &.menu-open {
+    a.mobile-only {
+      color: rgb(0,0,0) !important;
+    }
+  }
+
   .nav-menu {
-    @apply fixed w-full h-screen flex flex-col bg-white;
+    @apply fixed w-full h-screen flex-col bg-white;
     top: -100vh;
     left: 0;
     padding: calc(2 * $site-offset) 27px;

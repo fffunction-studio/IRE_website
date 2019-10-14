@@ -92,13 +92,23 @@ class Nav extends CoreModule {
 
     if (this.element.classList.contains('active')) {
       this.element.classList.remove('active')
+      document.querySelector('.nav-main').classList.remove('menu-open')
       this.element.classList.add('animating')
+      let burgerSpans = document.querySelectorAll('.nav-burger > span')
+      burgerSpans.forEach(span => {
+        span.style.backgroundColor = span.getAttribute('data-bg-color')
+      })
       setTimeout(() => {
         this.element.classList.remove('animating')
       }, 400)
     } else {
       this.element.classList.add('active')
+      document.querySelector('.nav-main').classList.add('menu-open')
       this.element.classList.add('animating')
+      let burgerSpans = document.querySelectorAll('.nav-burger > span')
+      burgerSpans.forEach(span => {
+        span.style.backgroundColor = 'rgb(0,0,0)'
+      })
       setTimeout(() => {
         this.element.classList.remove('animating')
       }, 400)

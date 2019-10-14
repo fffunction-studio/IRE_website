@@ -33,9 +33,11 @@ a:visited {
 }
 
 .underline-in {
-  position: relative;
+  @apply relative border-black;
+  
   &::after {
-    @apply absolute left-0 w-full h-full border-b border-black cursor-pointer;
+    @apply absolute left-0 w-full h-full border-b cursor-pointer;
+    border-color: inherit;
     bottom: 0.1em;
     content: '';
     transition: transform $short $ease-in-out-circ;
@@ -51,10 +53,11 @@ a:visited {
 
 @screen lg {
   .lg\:underline-in {
-  position: relative;
+  @apply relative border-black;
     &::after {
-      @apply absolute left-0 w-full h-full border-b border-black cursor-pointer;
+      @apply absolute left-0 w-full h-full border-b cursor-pointer;
       bottom: 0.1em;
+      border-color: inherit;
       content: '';
       transition: transform $short $ease-in-out-circ;
       transform: scaleX(0);
@@ -69,11 +72,12 @@ a:visited {
 }
 
 .underline-out {
+  @apply relative border-black;
   cursor: pointer;
-  position: relative;
   &::after {
-    @apply absolute left-0 w-full h-full border-b border-black cursor-pointer;
+    @apply absolute left-0 w-full h-full border-b cursor-pointer;
     bottom: 0.1em;
+    border-color: inherit;
     content: '';
     transition: transform $short $ease-in-out-circ;
     transform: scaleX(1);
