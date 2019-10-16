@@ -132,15 +132,16 @@ export default {
 
         this.subtotalCost = cart.querySelector(
           ".wspsc_cart_subtotal td:nth-child(2)"
-        ).innerText;
+        ).innerText.replace('.', ',');
+        
 
         this.shippingCost = cart.querySelector(
           ".wspsc_cart_shipping td:nth-child(2)"
-        ).innerText;
+        ).innerText.replace('.', ',');
 
         this.totalCost = cart.querySelector(
           ".wspsc_cart_total td:nth-child(2)"
-        ).innerText;
+        ).innerText.replace('.', ',');
 
         this.checkoutForm = cart
           .querySelector(".wpspsc_checkout_form form")
@@ -190,7 +191,7 @@ export default {
       let amount = element.querySelector(
         ".wspsc_cart_qty_td .wspsc_cart_item_qty"
       ).value;
-      let cost = element.querySelector("td:nth-child(3)").innerText;
+      let cost = element.querySelector("td:nth-child(3)").innerText.replace('.', ',');
       let removeForm = element
         .querySelector(".wp_cart_remove_item_form")
         .cloneNode(true);

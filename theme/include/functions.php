@@ -262,9 +262,7 @@ class IreneStracuzzi extends Timber\Site
         $exploded = explode('.', $round);
 
         if (sizeof($exploded) > 1) {
-          if ((int)$exploded[1] < 10) {
-            $number = $exploded[0] . ',' . $exploded[1];
-          }
+          $number = $exploded[0] . ',' . $exploded[1];
         } else {
           $number = $exploded[0] . ',-';
         }
