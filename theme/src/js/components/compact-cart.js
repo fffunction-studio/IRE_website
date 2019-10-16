@@ -3,11 +3,16 @@ import { CoreModule } from '../core/core-module';
 class CompactCart extends CoreModule {
   init() {
     let element = document.querySelector('.wpsps_compact_cart')
-    let debug = window.location.hostname == 'fffunction.studio'
     let link = '/cart'
-    if (debug) {
+    
+    console.log(window.location.pathname)
+    if (window.location.hostname == 'fffunction.studio') {
       link = '/irene/cart'
+    } else if (window.location.pathname == '/cms/shop/' || window.location.pathname == '/cms/shop') {
+      link = '/cms/cart'
     }
+
+    
 
     if (element) {
       let parent = element.parentElement

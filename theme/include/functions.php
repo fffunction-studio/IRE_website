@@ -263,7 +263,6 @@ class IreneStracuzzi extends Timber\Site
 
         if (sizeof($exploded) > 1) {
           if ((int)$exploded[1] < 10) {
-            $exploded[1] .= '0';
             $number = $exploded[0] . ',' . $exploded[1];
           }
         } else {

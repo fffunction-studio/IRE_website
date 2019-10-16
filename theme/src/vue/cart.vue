@@ -83,6 +83,14 @@
         <div class="container">
           <div class="row">
             <div class="col ml-1/12 w-3/12 lg:w-1/12">Subtotal</div>
+            <div class="col w-3/12">{{ subtotalCost }}</div>
+          </div>
+          <div class="row">
+            <div class="col ml-1/12 w-3/12 lg:w-1/12">Shipping</div>
+            <div class="col w-3/12">{{ shippingCost }}</div>
+          </div>
+          <div class="row">
+            <div class="col ml-1/12 w-3/12 lg:w-1/12">Total</div>
             <div class="col w-3/12">{{ totalCost }}</div>
             <div class="col w-4/12 lg:w-6/12 text-right">
               <div id="checkout">{{ appendChild('checkout', checkoutForm) }}</div>
@@ -101,6 +109,8 @@ export default {
   data() {
     return {
       items: [],
+      subtotalCost: "",
+      shippingCost: "",
       totalCost: "",
       checkoutForm: "",
       isEmpty: false
@@ -119,6 +129,14 @@ export default {
         itemElements.forEach(element => {
           this.items.push(this.getItemFromElement(element));
         });
+
+        this.subtotalCost = cart.querySelector(
+          ".wspsc_cart_subtotal td:nth-child(2)"
+        ).innerText;
+
+        this.shippingCost = cart.querySelector(
+          ".wspsc_cart_shipping td:nth-child(2)"
+        ).innerText;
 
         this.totalCost = cart.querySelector(
           ".wspsc_cart_total td:nth-child(2)"

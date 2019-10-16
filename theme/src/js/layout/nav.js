@@ -13,7 +13,8 @@ class Nav extends CoreModule {
       toggle.addEventListener('click', this.onToggle)
     })
 
-    this.closers = document.querySelectorAll('.nav-menu-item')
+    this.closers = Array.from(document.querySelectorAll('.nav-menu-item'))
+    this.closers.push(document.querySelector('.mobile-logo'))
     this.closers.forEach((closer) => {
       closer.addEventListener('click', this.onClose)
     })
@@ -78,6 +79,7 @@ class Nav extends CoreModule {
 
     if (this.element.classList.contains('active')) {
       this.element.classList.remove('active')
+      document.querySelector('.nav-main').classList.remove('menu-open')
       this.element.classList.add('animating')
       setTimeout(() => {
         this.element.classList.remove('animating')

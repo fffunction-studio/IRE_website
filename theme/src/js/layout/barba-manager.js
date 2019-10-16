@@ -114,6 +114,8 @@ class BarbaManager extends CoreModule {
               let main = document.querySelector('.main')
               let scripts = Array.from(main.querySelectorAll('script'))
 
+              eventBus.$emit('barba-before-enter')
+              
               scripts.forEach((script) => {
                 axios
                   .get(script.getAttribute('src'))
@@ -127,7 +129,6 @@ class BarbaManager extends CoreModule {
 
               window.scrollTo(0, 0)
 
-              eventBus.$emit('barba-before-enter')
             },
 
             afterEnter() {

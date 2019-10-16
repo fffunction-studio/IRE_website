@@ -19,7 +19,7 @@
 
   {% for item in products %}
 
-    {% set product = "[wp_cart_button name='" ~ item.title ~ "' price='" ~ item.meta("cost") ~ "']" %}
+    {% set product = "[wp_cart_button name='" ~ item.title ~ "' price='" ~ item.meta("cost") ~ "' shipping='0.001']" %}
 
     <section class="section {% if loop.index0 != 0 %}mover{% endif %} slider">
       <div class="container">
