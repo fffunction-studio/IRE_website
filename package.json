@@ -48,7 +48,7 @@
     "shortid": "^2.2.14",
     "simkey": "^1.0.0",
     "slug": "^1.1.0",
-    "swiper": "^4.5.0",
+    "swiper": "^6.5.1",
     "tailwindcss": "^1.0.5",
     "three": "^0.108.0",
     "ts-loader": "^6.0.4",
